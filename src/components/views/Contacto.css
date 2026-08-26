@@ -1,6 +1,6 @@
 /* ============================================================
    Contacto.css — estilos scoped del formulario de contacto (Vista 4)
-   Campos de formulario con focus en naranja de marca.
+   Campos de formulario con focus en naranjo de marca (v2: #E8670A).
    ============================================================ */
 
 .field {
@@ -12,27 +12,27 @@
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #44403c; /* stone-700 */
+  color: #44403C; /* Gris de párrafos */
 }
 
 .field-input {
   width: 100%;
   border-radius: 0.5rem;
-  border: 1px solid #d7dbd4; /* stone-300 */
-  background-color: #fafafa; /* stone-50 */
+  border: 1px solid #CDC9BE; /* Border */
+  background-color: #F4F1EA; /* Paper */
   padding: 0.625rem 1rem;
-  color: #1c1917; /* stone-900 */
+  color: #10110E; /* negro de marca */
   outline: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .field-input::placeholder {
-  color: #a8a29e; /* stone-400 */
+  color: #9C978A; /* stone-400 */
 }
 
 .field-input:focus {
-  border-color: #ff7c00; /* brand-orange */
-  box-shadow: 0 0 0 2px rgb(255 124 0 / 0.3); /* ring brand-orange / 30 */
+  border-color: #E8670A; /* naranjo */
+  box-shadow: 0 0 0 2px rgb(232 103 10 / 0.3); /* ring naranjo / 30 */
 }
 
 .contact-check {
@@ -49,6 +49,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background-color: rgb(255 124 0 / 0.1);
-  color: #ff7c00;
+  background-color: rgb(232 103 10 / 0.1);
+  color: #E8670A; /* naranjo */
 }

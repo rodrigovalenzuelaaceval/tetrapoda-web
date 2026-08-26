@@ -5,75 +5,87 @@ export default {
     extend: {
       colors: {
         /* ============================================================
-           COLORES DE MARCA — extraídos de los logos Tetrapoda
-           (logo solo.webp + ICONO PLUMA.jpg)
-           - Naranja vibrante: la pluma
-           - Negro texto
-           - Azul y Verde: línea inferior
+           PALETA DE MARCA — Manual de Identidad Tipográfica y Cromática v2
+           Cada color de acento tiene un rol único y exclusivo:
+           naranjo = acción/CTA · azul = dato técnico · verde = confirmación
+           sage = secundario / superficie oscura de marca
         ============================================================ */
         brand: {
           orange: {
-            DEFAULT: '#FF7C00',   // naranja vibrante principal (acento/CTA)
-            bright:  '#FF7300',   // naranja puro anunciado en la pluma
-            flame:   '#FF3E03',   // rojo-naranja (extremo del degradado)
-            glow:    '#FFB45C',   // naranja claro (hover suave / detalles)
+            DEFAULT: '#E8670A',   // naranjo — único color de acción/CTA
+            glow:    '#F5954A',   // naranjo claro — hover y acentos sobre fondo oscuro
           },
           black: {
-            DEFAULT: '#10110E',   // negro del texto del logo
-            ink:     '#0C0D09',   // negro profundo para fondos
+            DEFAULT: '#10110E',   // negro de marca — títulos, texto sobre naranjo
           },
           azul: {
-            DEFAULT: '#017DCC',   // azul de la línea inferior
-            deep:    '#0B5E94',   // azul profundo (tintas científicas)
+            DEFAULT: '#2A7AB5',   // único color de dato/precisión técnica
           },
           verde: {
-            DEFAULT: '#5AB519',   // verde de la línea inferior
-            deep:    '#3D7A10',   // verde oscuro (detalles)
+            DEFAULT: '#5AAA3C',   // único color de confirmación (checkmarks)
           },
         },
 
         /* ============================================================
-           PALETA COMPLEMENTARIA — outdoor / wildlife / científica
-           tonos tierra, verdes bosque profundos y grises piedra
+           SUPERFICIE OSCURA DE MARCA — escala derivada de Sage
+           Reemplaza la antigua escala "forest" (verde-bosque improvisada,
+           ajena al manual). Úsala para secciones "tecnología propia".
         ============================================================ */
-        forest: {
-          50:  '#f2f6ee',
-          100: '#e0ebd7',
-          200: '#c2d7b0',
-          300: '#9cbd81',
-          400: '#6f9b4f',
-          500: '#1f5c36',   // verde bosque
-          600: '#1a4a2c',
-          700: '#143a23',
-          800: '#0e2a19',
-          900: '#0a1f12',
-          DEFAULT: '#1f5c36',
+        sage: {
+          50:  '#F4F6F4',
+          100: '#E4E9E3',
+          200: '#C9D2C7',
+          300: '#A8B8AA',   // = Sage claro del manual
+          400: '#8B9C8D',
+          500: '#6B7C6E',   // = Sage (DEFAULT del manual)
+          600: '#56655A',
+          700: '#424D45',
+          800: '#2C332E',
+          900: '#171C18',   // fondo de secciones oscuras
+          DEFAULT: '#6B7C6E',
         },
+
+        /* ============================================================
+           NEUTROS CÁLIDOS — reemplaza la escala "stone" fría anterior.
+           Los anclajes exactos del manual quedan en 50/100/200/700/900;
+           el resto son interpolaciones para una rampa suave.
+        ============================================================ */
+        stone: {
+          50:  '#F4F1EA',   // = Paper (fondo claro base)
+          100: '#EDE9E0',   // = Mist (paneles/tarjetas secundarias)
+          200: '#CDC9BE',   // = Border (bordes y separadores)
+          300: '#B7B2A4',
+          400: '#9C978A',
+          500: '#827D70',
+          600: '#5C584E',
+          700: '#44403C',   // = Gris de párrafos
+          800: '#2A2723',
+          900: '#10110E',   // = Negro de marca
+          DEFAULT: '#827D70',
+        },
+
+        /* Alias semánticos directos, por si conviene nombrarlos así en vez
+           de vía la escala stone (mismo valor, mismo resultado visual). */
+        paper:  '#F4F1EA',
+        mist:   '#EDE9E0',
+        border: '#CDC9BE',
+
+        /* ============================================================
+           EXTENSIÓN OPCIONAL — Tierra (solo Catálogo de equipos)
+           Uso restringido: no reemplaza ni compite con la paleta núcleo.
+        ============================================================ */
         earth: {
           50:  '#faf7f3',
           100: '#f0e9df',
           200: '#ddd0be',
           300: '#c3b094',
           400: '#a38a68',
-          500: '#6b4f2f',   // marrón tierra
+          500: '#6b4f2f',
           600: '#594224',
           700: '#48361d',
           800: '#362816',
           900: '#241a0e',
           DEFAULT: '#6b4f2f',
-        },
-        stone: {
-          50:  '#f6f7f6',
-          100: '#e8ecea',
-          200: '#d2d9d6',
-          300: '#b3beba',
-          400: '#8c9995',
-          500: '#5f6c68',
-          600: '#4c5654',
-          700: '#3b4341',
-          800: '#2b3130',
-          900: '#1d2221',   // gris piedra profundo
-          DEFAULT: '#5f6c68',
         },
       },
       fontFamily: {

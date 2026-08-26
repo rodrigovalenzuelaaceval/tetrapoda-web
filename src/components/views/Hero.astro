@@ -38,7 +38,7 @@ const { metricas = [] } = Astro.props;
       datos confiables capturados en el hábitat exacto donde ocurre la biodiversidad.
     </p>
     <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-      <a href="#equipos" class="rounded-full bg-brand-orange px-7 py-3 text-center font-semibold text-white shadow-lg transition hover:bg-brand-orange-flame">
+      <a href="#equipos" class="rounded-full bg-brand-orange px-7 py-3 text-center font-semibold text-brand-black shadow-lg transition hover:bg-brand-orange-glow">
         Explorar catálogo de equipos
       </a>
       <a href="#contacto" class="rounded-full border border-stone-500 px-7 py-3 text-center font-semibold text-white transition hover:border-brand-orange hover:text-brand-orange">
@@ -52,7 +52,7 @@ const { metricas = [] } = Astro.props;
         metricas.map((m) => (
           <div>
             <dt class="sr-only">{m.etiqueta}</dt>
-            <dd class="font-mono text-3xl font-bold text-brand-orange">{m.valor}</dd>
+            <dd class="text-3xl font-bold text-brand-orange [font-variant-numeric:tabular-nums]">{m.valor}</dd>
             <dd class="mt-1 text-sm text-stone-300">{m.etiqueta}</dd>
           </div>
         ))
