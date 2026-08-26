@@ -1,28 +1,10 @@
 ---
 // Catalogo — Vista 2 · Catálogo de equipos y desarrollo tecnológico.
-// Contenido real dividido en dos categorías, con fotografías reales optimizadas
-// mediante el optimizador nativo de Astro (<Image />):
-//   1 · Desarrollo Tecnológico (Línea Zéfiro)
-//   2 · Equipos de Arriendo
+// Consume los datos compartidos de src/data/equipos.ts y los organiza
+// visualmente en dos categorías: Línea Zéfiro y Arriendo de Equipos.
 import { Image } from 'astro:assets';
-import imgZefiroStrix from '../../assets/equipos/zefirostrix.jpg';
-import imgZefiroPuma from '../../assets/equipos/zefiropuma.jpg';
-import imgSongMeter from '../../assets/equipos/minibat2_front.webp';
-import imgBushnellCoreDs4k from '../../assets/equipos/bushnell_core_ds-4k32_119987C.webp';
-import imgBushnellCoreDs30 from '../../assets/equipos/bushnell_30_119977cb.jpg';
-import imgRexingH1 from '../../assets/equipos/rexing_16mph1.jpg';
-import imgSwarovskiScope from '../../assets/equipos/scope.jpg';
-import imgHides from '../../assets/equipos/hide.jpg';
+import { equipos, type Producto } from '../../data/equipos';
 import "./Catalogo.css";
-
-interface Producto {
-  nombre: string;
-  descripcion: string;
-  etiquetas: string[];
-  imagen?: ImageMetadata; // fotografía del equipo (renderizada con <Image />)
-  ctaTexto?: string; // texto del CTA; por defecto "Consultar arriendo →"
-  servicioRelacionado?: { texto: string; href: string }; // nota secundaria: equipo → servicio de análisis
-}
 
 interface Categoria {
   titulo: string;
@@ -32,90 +14,23 @@ interface Categoria {
   destaque?: boolean;
 }
 
+// Arquitectura visual conservada: tecnología propia (Zéfiro) primero.
+const tecnologiaZefiro = equipos.filter((e) => e.slug.startsWith("zefiro-"));
+const equiposArriendo = equipos.filter((e) => !e.slug.startsWith("zefiro-"));
+
 const categorias: Categoria[] = [
   {
     titulo: "Desarrollo Tecnológico",
     sub: "Línea Zéfiro",
-    descripcion:
-      "Tecnología propia Tetrapoda® para el monitoreo automatizado de fauna.",
+    descripcion: "Tecnología propia Tetrapoda® para el monitoreo automatizado de fauna.",
     destaque: true,
-    productos: [
-      {
-        nombre: "Tetrapoda® Zéfiro Strix",
-        descripcion:
-          "Estación automatizada de monitoreo bioacústico para aves nocturnas. Configurable vía app celular por Bluetooth. Sincronización GPS automática, registra fecha, hora, temperatura, humedad relativa, presión atmosférica y coordenadas UTM.",
-        etiquetas: ["Bioacústica", "Playback", "Log coordenadas UTM, temperatura, humedad, presión atmosférica", "Arriendo"],
-        imagen: imgZefiroStrix,
-      },
-      {
-        nombre: "Tetrapoda® Zéfiro-Puma",
-        descripcion:
-          "Señuelo acústico programable. Reproduce audios personalizables vía microSD (aves, anfibios, mamíferos). Chasis en verde oliva, amplificador clase D de alta potencia, tamaño reducido y alta eficiencia. Batería Li-Ion de altísima autonomía.",
-        etiquetas: ["Señuelo acústico", "Amplificador Clase D", "Tarjeta microSD", "Arriendo"],
-        imagen: imgZefiroPuma,
-      },
-    ],
+    productos: tecnologiaZefiro,
   },
   {
     titulo: "Arriendo de Equipos",
     sub: "Arriendo",
-    descripcion:
-      "Instrumentación de terreno para registro riguroso.",
-    productos: [
-      {
-        nombre: "Song Meter Mini Bat 2 AA",
-        descripcion:
-          "Grabadora pasiva para detección de murciélagos. IP67, incluye SD 32GB y 8 pilas AA.",
-        etiquetas: ["Bioacústica", "Quirópteros"],
-        imagen: imgSongMeter,
-        servicioRelacionado: {
-          texto: "¿Ya tienes los audios? Conoce nuestro servicio de identificación →",
-          href: "/servicios/identificacion-quiropteros",
-        },
-      },
-      {
-        nombre: "Bushnell Core DS-4K 32 MP No Glow",
-        descripcion:
-          "Cámara trampa de doble sensor optimizado día/noche. 32 MP, video 4K, flash invisible.",
-        etiquetas: ["Foto-trampeo", "4K"],
-        imagen: imgBushnellCoreDs4k,
-      },
-      {
-        nombre: "Bushnell Core DS 30 MP No Glow",
-        descripcion:
-          "Cámara trampa de alto rendimiento, doble sensor, video Full HD.",
-        etiquetas: ["Foto-trampeo", "Full HD"],
-        imagen: imgBushnellCoreDs30,
-      },
-      {
-        nombre: "Rexing H1 16 MP HI",
-        descripcion:
-          "Cámara trampa costo-efectiva, rápida velocidad de disparo, video Full HD.",
-        etiquetas: ["Foto-trampeo", "Costo-efectiva"],
-        imagen: imgRexingH1,
-      },
-      {
-        nombre: "Swarovski ATS 65 HD",
-        descripcion:
-          "Telescopio terrestre de fluoruro con ocular 20-60x. Alta fidelidad de color, ideal para digiscoping. Incluye trípode Manfrotto.",
-        etiquetas: ["Óptica", "Digiscoping"],
-        imagen: imgSwarovskiScope,
-      },
-      {
-        nombre: "Hides fotográficos",
-        descripcion:
-          "Estructuras autoarmables o tipo manta para observación indetectable.",
-        etiquetas: ["Observación", "Soporte"],
-        imagen: imgHides,
-      },
-      {
-        nombre: "Atractores olfativos",
-        descripcion:
-          "Fórmulas específicas para carnívoros, nutrias y ciervos de larga duración.",
-        etiquetas: ["Atractores"],
-        ctaTexto: "Consultar disponibilidad →",
-      },
-    ],
+    descripcion: "Instrumentación de terreno para registro riguroso.",
+    productos: equiposArriendo,
   },
 ];
 ---
@@ -175,6 +90,12 @@ const categorias: Categoria[] = [
                     </ul>
                     <a href="#contacto" class="card-action">
                       {p.ctaTexto ?? "Consultar arriendo →"}
+                    </a>
+                    <a
+                      href={`/equipos/${p.slug}`}
+                      class="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-brand-orange transition hover:text-brand-orange-glow"
+                    >
+                      Ver detalles →
                     </a>
                     {
                       p.servicioRelacionado && (
