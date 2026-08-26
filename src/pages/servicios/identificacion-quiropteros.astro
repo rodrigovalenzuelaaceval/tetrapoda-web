@@ -81,6 +81,27 @@ const usos = [
   "Monitoreo en el marco de RCA o compromisos ambientales",
   "Estudios independientes de fauna",
 ];
+
+// Datos estructurados Schema.org — ayuda a Google a entender que esta página
+// describe un servicio concreto, con proveedor y área de cobertura definidos.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Identificación acústica de quirópteros",
+  name: "Identificación Acústica de Quirópteros — Filtro Érebo",
+  provider: {
+    "@type": "Organization",
+    name: "Tetrapoda SpA",
+    url: "https://www.tetrapoda.cl",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Chile",
+  },
+  description:
+    "Servicio de identificación de llamadas de quirópteros basado en un método estadístico transparente y auditable (distancia de Mahalanobis), con revisión experta y reportes listos para SEIA/SMA.",
+  url: "https://www.tetrapoda.cl/servicios/identificacion-quiropteros",
+};
 ---
 
 <BaseLayout
@@ -88,6 +109,8 @@ const usos = [
   description="Servicio de identificación de llamadas de quirópteros basado en un método estadístico transparente y auditable, con revisión experta y reportes listos para SEIA/SMA."
 >
   <main>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
     <!-- Encabezado del servicio -->
     <section class="bg-forest-900 py-20 text-stone-100 sm:py-28">
       <div class="mx-auto max-w-4xl px-6">

@@ -21,6 +21,7 @@ interface Producto {
   etiquetas: string[];
   imagen?: ImageMetadata; // fotografía del equipo (renderizada con <Image />)
   ctaTexto?: string; // texto del CTA; por defecto "Consultar arriendo →"
+  servicioRelacionado?: { texto: string; href: string }; // nota secundaria: equipo → servicio de análisis
 }
 
 interface Categoria {
@@ -67,6 +68,10 @@ const categorias: Categoria[] = [
           "Grabadora pasiva para detección de murciélagos. IP67, incluye SD 32GB y 8 pilas AA.",
         etiquetas: ["Bioacústica", "Quirópteros"],
         imagen: imgSongMeter,
+        servicioRelacionado: {
+          texto: "¿Ya tienes los audios? Conoce nuestro servicio de identificación →",
+          href: "/servicios/identificacion-quiropteros",
+        },
       },
       {
         nombre: "Bushnell Core DS-4K 32 MP No Glow",
@@ -171,6 +176,16 @@ const categorias: Categoria[] = [
                     <a href="#contacto" class="card-action">
                       {p.ctaTexto ?? "Consultar arriendo →"}
                     </a>
+                    {
+                      p.servicioRelacionado && (
+                        <a
+                          href={p.servicioRelacionado.href}
+                          class="mt-2 block text-xs font-medium text-stone-500 underline decoration-dotted underline-offset-2 hover:text-brand-orange"
+                        >
+                          {p.servicioRelacionado.texto}
+                        </a>
+                      )
+                    }
                   </article>
                 ))
               }

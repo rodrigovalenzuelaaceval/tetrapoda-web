@@ -1,0 +1,68 @@
+---
+// Servicios — Página índice.
+// Agrupa todos los servicios de análisis especializado de Tetrapoda.
+// Patrón preparado para crecer: agrega un objeto a `servicios` por cada
+// nuevo servicio con página propia en src/pages/servicios/[slug].astro.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Servicio {
+  titulo: string;
+  categoria: string;
+  resumen: string;
+  href: string;
+}
+
+const servicios: Servicio[] = [
+  {
+    titulo: "Identificación Acústica de Quirópteros",
+    categoria: "Filtro Érebo · Bioacústica",
+    resumen:
+      "Identificación de llamadas de murciélagos con método estadístico transparente y auditable, revisión experta y reportes listos para SEIA/SMA.",
+    href: "/servicios/identificacion-quiropteros",
+  },
+];
+---
+
+<BaseLayout
+  title="Servicios de Monitoreo de Biodiversidad — Tetrapoda SpA"
+  description="Servicios de análisis especializado para consultoras ambientales e investigadores: identificación bioacústica, procesamiento de datos y consultoría técnica para SEIA."
+>
+  <main>
+    <section class="bg-forest-900 py-20 text-stone-100 sm:py-28">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange-glow">Servicios</p>
+        <h1 class="mt-3 font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
+          Servicios de análisis especializado
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-stone-300">
+          Procesamiento y análisis de datos de biodiversidad con metodologías trazables y auditables, pensadas
+          para sostenerse ante un revisor del SEIA o de la SMA.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white py-20">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {
+            servicios.map((s) => (
+              <article class="flex flex-col rounded-3xl border border-stone-200 bg-stone-50 p-8 shadow-sm">
+                <span class="inline-flex w-fit rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-orange">
+                  {s.categoria}
+                </span>
+                <h2 class="mt-5 font-display text-2xl font-bold text-stone-900">{s.titulo}</h2>
+                <p class="mt-3 flex-1 text-sm leading-relaxed text-stone-600">{s.resumen}</p>
+                <a
+                  href={s.href}
+                  class="mt-6 inline-block w-fit rounded-full bg-brand-orange px-5 py-2 text-sm font-semibold text-white shadow transition hover:bg-brand-orange-flame"
+                >
+                  Conoce el servicio completo →
+                </a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
