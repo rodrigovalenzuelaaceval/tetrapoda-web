@@ -1,0 +1,250 @@
+---
+// Servicio — Identificación Acústica de Quirópteros (Filtro Érebo).
+// Página propia del servicio, en la misma línea que /argos.
+// Estructura: problema -> enfoque -> proceso -> entregables -> uso -> modelo -> CTA.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const enfoque = [
+  {
+    titulo: "Distancia de Mahalanobis",
+    texto:
+      "Clasificación estadística de cada pulso contra una tabla de referencia de especies chilenas, con p-valor de chi-cuadrado como medida de confianza.",
+  },
+  {
+    titulo: "Propagación de incertidumbre",
+    texto:
+      "El resultado incorpora la precisión real del equipo de grabación utilizado en terreno.",
+  },
+  {
+    titulo: "Reglas de plausibilidad morfológica",
+    texto:
+      "Detectan y separan artefactos de grabación o pulsos atípicos antes de que contaminen la clasificación.",
+  },
+  {
+    titulo: "Curación estadística de rareza",
+    texto:
+      "Las detecciones infrecuentes se marcan para revisión, en vez de aceptarse o descartarse automáticamente.",
+  },
+  {
+    titulo: "Resguardo de especies amenazadas",
+    texto:
+      "Ninguna detección de una especie en categoría CR, EN o VU (RCE) se descarta silenciosamente: siempre pasa a revisión experta.",
+  },
+];
+
+const proceso = [
+  {
+    titulo: "Recepción de datos",
+    texto:
+      "Recibimos las grabaciones (.wav) provenientes de grabadores Wildlife Acoustics o AudioMoth, organizadas por estación y campaña.",
+  },
+  {
+    titulo: "Extracción de parámetros acústicos",
+    texto:
+      "Se miden automáticamente los parámetros de cada pulso: frecuencia de pico, duración, frecuencia máxima y mínima, ancho de banda.",
+  },
+  {
+    titulo: "Clasificación estadística",
+    texto:
+      "Cada pulso se contrasta contra la tabla de referencia de especies chilenas mediante distancia de Mahalanobis con p-valor asociado.",
+  },
+  {
+    titulo: "Control de calidad automatizado",
+    texto:
+      "Se aplican reglas de plausibilidad morfológica y curación por rareza estadística, separando artefactos y detecciones atípicas.",
+  },
+  {
+    titulo: "Revisión experta",
+    texto:
+      "Todo caso ambiguo, de baja calidad, o correspondiente a una especie en categoría de conservación, se revisa manualmente antes del reporte final.",
+  },
+  {
+    titulo: "Entrega de resultados",
+    texto:
+      "Se generan los productos finales, con la base de datos curada disponible para consulta y trazabilidad completa de cada decisión.",
+  },
+];
+
+const entregables = [
+  "Identificación de especies por estación y fecha, con confianza estadística y trazabilidad metodológica de cada detección.",
+  "Espectrogramas individuales de cada llamada identificada, con parámetros acústicos y diagnóstico morfológico.",
+  "Reporte técnico con metodología, estadísticos de clasificación, control de calidad y resultados por estación.",
+  "Gráficos de actividad: composición de especies, actividad horaria, patrones de uso del hábitat.",
+  "Base de ocurrencias en formato Darwin Core (adaptación SMA), lista para su incorporación a bases de datos de biodiversidad (SEIA/SMA, GBIF/SiB-Chile).",
+  "Tablas compatibles con SIG para análisis espacial de las detecciones.",
+  "Clasificación según estado de conservación (RCE), con alerta explícita para especies CR/EN/VU.",
+];
+
+const usos = [
+  "Líneas de base de biodiversidad",
+  "Evaluaciones de impacto ambiental (SEIA)",
+  "Monitoreo en el marco de RCA o compromisos ambientales",
+  "Estudios independientes de fauna",
+];
+---
+
+<BaseLayout
+  title="Identificación Acústica de Quirópteros — Filtro Érebo · Tetrapoda SpA"
+  description="Servicio de identificación de llamadas de quirópteros basado en un método estadístico transparente y auditable, con revisión experta y reportes listos para SEIA/SMA."
+>
+  <main>
+    <!-- Encabezado del servicio -->
+    <section class="bg-forest-900 py-20 text-stone-100 sm:py-28">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange-glow">
+          Filtro Érebo · Servicio bioacústico
+        </p>
+        <h1 class="mt-3 font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
+          Identificación Acústica de Quirópteros
+        </h1>
+        <p class="mt-5 text-xl font-medium text-brand-orange-glow">
+          Un método auditable, no una caja negra.
+        </p>
+      </div>
+    </section>
+
+    <!-- El problema -->
+    <section class="border-b border-stone-200 bg-white py-20">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">El problema</p>
+        <h2 class="mt-3 font-display text-3xl font-bold text-stone-900 sm:text-4xl">
+          Una identificación que no se puede auditar es difícil de defender
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-stone-600">
+          La bioacústica de murciélagos se ha vuelto una herramienta estándar en líneas de base, monitoreos de
+          biodiversidad y evaluaciones de impacto ambiental. Pero la mayoría de los softwares de clasificación
+          automática —redes neuronales entrenadas con bases de datos no siempre representativas de la fauna
+          chilena— funcionan como caja negra: entregan una especie con un puntaje de confianza, sin mostrar qué
+          parámetros acústicos sustentan esa decisión ni permitir que un revisor externo reconstruya el criterio
+          de clasificación.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Para un estudio que debe sostenerse ante un revisor del SEIA o de la SMA, eso es un riesgo —
+          especialmente cuando involucra especies en categoría de conservación.
+        </p>
+      </div>
+    </section>
+
+    <!-- Nuestro enfoque -->
+    <section class="bg-stone-50 py-20">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Nuestro enfoque</p>
+          <h2 class="mt-3 font-display text-3xl font-bold text-stone-900 sm:text-4xl">
+            Un método estadístico clásico y transparente
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-stone-600">
+            Cada clasificación queda respaldada por los parámetros acústicos medidos, la distancia estadística a
+            cada especie candidata y su nivel de significancia — trazable de principio a fin.
+          </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            enfoque.map((item) => (
+              <article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-verde" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <h3 class="mt-4 font-display text-lg font-bold text-stone-900">{item.titulo}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-stone-600">{item.texto}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo trabajamos -->
+    <section class="border-b border-stone-200 bg-white py-20">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Cómo trabajamos</p>
+        <h2 class="mt-3 font-display text-3xl font-bold text-stone-900 sm:text-4xl">
+          Del audio de campo al reporte final
+        </h2>
+
+        <ol class="mt-12 space-y-8">
+          {
+            proceso.map((paso, i) => (
+              <li class="flex gap-5">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-orange/10 font-mono text-sm font-semibold text-brand-orange">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-stone-900">{paso.titulo}</h3>
+                  <p class="mt-1 text-sm leading-relaxed text-stone-600">{paso.texto}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <!-- Qué recibe el cliente -->
+    <section class="bg-forest-900 py-20 text-stone-100">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange-glow">Qué recibe el cliente</p>
+        <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
+          Productos listos para línea base, monitoreo o EIA
+        </h2>
+
+        <ul class="mt-10 space-y-4">
+          {
+            entregables.map((e) => (
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 h-4 w-4 shrink-0 text-brand-orange-glow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-stone-200">{e}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- Para qué se usa -->
+    <section class="border-b border-stone-200 bg-white py-16">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Para qué se usa</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          {
+            usos.map((u) => (
+              <span class="rounded-full border border-stone-200 bg-stone-50 px-4 py-2 text-sm font-medium text-stone-700">
+                {u}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Modelo de servicio -->
+    <section class="bg-stone-50 py-20">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Modelo de servicio</p>
+        <h2 class="mt-3 font-display text-3xl font-bold text-stone-900 sm:text-4xl">
+          Cotización por noche-detector procesada
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-stone-600">
+          Esto da certeza de presupuesto desde el inicio del proyecto. La revisión experta está incluida en el
+          costo base — no es un servicio adicional.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Para proyectos de gran volumen (campañas con múltiples estaciones o temporadas largas), trabajamos con
+          cotización por lote, ajustando condiciones según el tamaño total del set de datos.
+        </p>
+
+        <div class="mt-10">
+          <a
+            href="/#contacto"
+            class="inline-block rounded-full bg-brand-orange px-8 py-3 font-semibold text-white shadow-lg transition hover:bg-brand-orange-flame"
+          >
+            Solicitar cotización
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
