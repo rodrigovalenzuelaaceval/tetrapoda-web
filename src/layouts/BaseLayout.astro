@@ -1,0 +1,167 @@
+---
+// BaseLayout — layout global con <head>, SEO técnico, Open Graph/Twitter,
+// fuentes (Montserrat, Inter, JetBrains Mono), favicon y header/footer definitivos.
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Tetrapoda SpA — Arriendo de equipos y consultoría para estudios de biodiversidad",
+  description = "Arriendo de equipos de campo y consultoría científica para monitoreo de biodiversidad: cámaras trampa, monitores acústicos estacionarios y portátiles, geoposicionamiento y software de gestión de datos.",
+} = Astro.props;
+
+const site = new URL(Astro.url.pathname, Astro.site);
+const navLinks: { href: string; label: string }[] = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#equipos", label: "Equipos" },
+  { href: "#webapp", label: "Web-App" },
+  { href: "#contacto", label: "Contacto" },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#10110E" />
+    <link rel="canonical" href={site} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Tetrapoda SpA" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={site} />
+    <meta property="og:locale" content="es_CL" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon: logo Tetrapoda -->
+    <link rel="icon" type="image/png" href="/logo solo.png" />
+
+    <!-- Fuentes: Montserrat (títulos/display), Inter (texto/sans), JetBrains Mono (datos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body class="bg-stone-50 text-stone-800">
+    <!-- Barra superior: navegación fija, fondo blanco puro para fusionar el logo.
+         Altura fija h-24/h-28; el logo ocupa el 100% de esa altura sin desbordar. -->
+    <header class="sticky inset-x-0 top-0 z-50 h-24 overflow-hidden border-b border-stone-200 bg-white md:h-28">
+      <div class="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
+        <a
+          href="/"
+          aria-label="Tetrapoda — ir al inicio"
+          class="flex h-full items-center gap-3"
+        >
+          <img
+            src="/logotetrapoda.PNG"
+            alt="Logo Tetrapoda: pluma y nombre"
+            class="h-[90%] w-auto max-h-[90%] object-contain"
+            loading="eager"
+          />
+          <span class="flex flex-col justify-center leading-tight">
+            <span class="font-display text-xl font-bold text-brand-black md:text-[22px]">
+              Tetrapoda SpA
+            </span>
+            <span class="mt-0.5 text-[15px] font-normal text-stone-600">
+              Tecnología y ciencia al servicio del monitoreo de biodiversidad.
+            </span>
+          </span>
+        </a>
+        <nav class="hidden items-center gap-8 text-sm font-medium text-stone-600 md:flex" aria-label="Navegación principal">
+          {
+            navLinks.map((l) => (
+              <a href={l.href} class="transition-colors hover:text-brand-orange">
+                {l.label}
+              </a>
+            ))
+          }
+          <a
+            href="#contacto"
+            class="rounded-full bg-brand-orange px-5 py-2 text-white shadow-sm transition hover:bg-brand-orange-flame"
+          >
+            Cotizar
+          </a>
+        </nav>
+        <!-- Navegación móvil simplificada -->
+        <details class="md:hidden">
+          <summary class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-md text-stone-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </summary>
+          <div class="absolute right-6 top-24 w-56 rounded-xl border border-stone-200 bg-white p-3 shadow-xl md:top-28">
+            {
+              navLinks.map((l) => (
+                <a href={l.href} class="block rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100">
+                  {l.label}
+                </a>
+              ))
+            }
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="border-t border-stone-200 bg-stone-900 text-stone-300">
+      <div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <div class="flex items-center gap-2 font-display text-lg font-bold text-white">
+            <img src="/logo solo.png" alt="Logo solo Tetrapoda" width="30" height="30" class="h-8 w-8 object-contain" loading="lazy" />
+            Tetrapoda<span class="text-brand-orange">SpA</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-stone-400">
+            Equipos de campo y consultoría científica para el monitoreo riguroso de la biodiversidad en terreno.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-stone-200">Explora</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="#inicio" class="transition-colors hover:text-brand-orange">Inicio</a></li>
+            <li><a href="#equipos" class="transition-colors hover:text-brand-orange">Catálogo de equipos</a></li>
+            <li><a href="#webapp" class="transition-colors hover:text-brand-orange">Web-App</a></li>
+            <li><a href="#contacto" class="transition-colors hover:text-brand-orange">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-stone-200">Contacto</h3>
+          <ul class="mt-4 space-y-2 text-sm text-stone-400">
+            <li>+56 9 7788 5573</li>
+            <li>contacto@tetrapoda.cl</li>
+            <li>Santiago de Chile. Envíos a regiones previa coordinación.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-stone-200">Enfoque</h3>
+          <p class="mt-4 text-sm leading-relaxed text-stone-400">
+            Estándares de campo validados, datos trazables y protocolos de muestreo replicables.
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-stone-800">
+        <div class="mx-auto max-w-6xl px-6 py-5 text-center text-xs text-stone-500">
+          © {new Date().getFullYear()} Tetrapoda SpA — Consultoría ambiental y arriendo de equipos. Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

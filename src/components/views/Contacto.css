@@ -1,0 +1,54 @@
+/* ============================================================
+   Contacto.css — estilos scoped del formulario de contacto (Vista 4)
+   Campos de formulario con focus en naranja de marca.
+   ============================================================ */
+
+.field {
+  display: block;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #44403c; /* stone-700 */
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #d7dbd4; /* stone-300 */
+  background-color: #fafafa; /* stone-50 */
+  padding: 0.625rem 1rem;
+  color: #1c1917; /* stone-900 */
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field-input::placeholder {
+  color: #a8a29e; /* stone-400 */
+}
+
+.field-input:focus {
+  border-color: #ff7c00; /* brand-orange */
+  box-shadow: 0 0 0 2px rgb(255 124 0 / 0.3); /* ring brand-orange / 30 */
+}
+
+.contact-check {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-check-icon {
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: rgb(255 124 0 / 0.1);
+  color: #ff7c00;
+}

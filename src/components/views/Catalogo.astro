@@ -1,0 +1,184 @@
+---
+// Catalogo — Vista 2 · Catálogo de equipos y desarrollo tecnológico.
+// Contenido real dividido en dos categorías, con fotografías reales optimizadas
+// mediante el optimizador nativo de Astro (<Image />):
+//   1 · Desarrollo Tecnológico (Línea Zéfiro)
+//   2 · Equipos de Arriendo
+import { Image } from 'astro:assets';
+import imgZefiroStrix from '../../assets/equipos/zefirostrix.jpg';
+import imgZefiroPuma from '../../assets/equipos/zefiropuma.jpg';
+import imgSongMeter from '../../assets/equipos/minibat2_front.webp';
+import imgBushnellCoreDs4k from '../../assets/equipos/bushnell_core_ds-4k32_119987C.webp';
+import imgBushnellCoreDs30 from '../../assets/equipos/bushnell_30_119977cb.jpg';
+import imgRexingH1 from '../../assets/equipos/rexing_16mph1.jpg';
+import imgSwarovskiScope from '../../assets/equipos/scope.jpg';
+import imgHides from '../../assets/equipos/hide.jpg';
+import "./Catalogo.css";
+
+interface Producto {
+  nombre: string;
+  descripcion: string;
+  etiquetas: string[];
+  imagen?: ImageMetadata; // fotografía del equipo (renderizada con <Image />)
+  ctaTexto?: string; // texto del CTA; por defecto "Consultar arriendo →"
+}
+
+interface Categoria {
+  titulo: string;
+  sub: string;
+  descripcion: string;
+  productos: Producto[];
+  destaque?: boolean;
+}
+
+const categorias: Categoria[] = [
+  {
+    titulo: "Desarrollo Tecnológico",
+    sub: "Línea Zéfiro",
+    descripcion:
+      "Tecnología propia Tetrapoda® para el monitoreo automatizado de fauna.",
+    destaque: true,
+    productos: [
+      {
+        nombre: "Tetrapoda® Zéfiro Strix",
+        descripcion:
+          "Estación automatizada de monitoreo bioacústico para aves nocturnas. Configurable vía app celular por Bluetooth. Sincronización GPS automática, registra fecha, hora, temperatura, humedad relativa, presión atmosférica y coordenadas UTM.",
+        etiquetas: ["Bioacústica", "Playback", "Log coordenadas UTM, temperatura, humedad, presión atmosférica", "Arriendo"],
+        imagen: imgZefiroStrix,
+      },
+      {
+        nombre: "Tetrapoda® Zéfiro-Puma",
+        descripcion:
+          "Señuelo acústico programable. Reproduce audios personalizables vía microSD (aves, anfibios, mamíferos). Chasis en verde oliva, amplificador clase D de alta potencia, tamaño reducido y alta eficiencia. Batería Li-Ion de altísima autonomía.",
+        etiquetas: ["Señuelo acústico", "Amplificador Clase D", "Tarjeta microSD", "Arriendo"],
+        imagen: imgZefiroPuma,
+      },
+    ],
+  },
+  {
+    titulo: "Arriendo de Equipos",
+    sub: "Arriendo",
+    descripcion:
+      "Instrumentación de terreno para registro riguroso.",
+    productos: [
+      {
+        nombre: "Song Meter Mini Bat 2 AA",
+        descripcion:
+          "Grabadora pasiva para detección de murciélagos. IP67, incluye SD 32GB y 8 pilas AA.",
+        etiquetas: ["Bioacústica", "Quirópteros"],
+        imagen: imgSongMeter,
+      },
+      {
+        nombre: "Bushnell Core DS-4K 32 MP No Glow",
+        descripcion:
+          "Cámara trampa de doble sensor optimizado día/noche. 32 MP, video 4K, flash invisible.",
+        etiquetas: ["Foto-trampeo", "4K"],
+        imagen: imgBushnellCoreDs4k,
+      },
+      {
+        nombre: "Bushnell Core DS 30 MP No Glow",
+        descripcion:
+          "Cámara trampa de alto rendimiento, doble sensor, video Full HD.",
+        etiquetas: ["Foto-trampeo", "Full HD"],
+        imagen: imgBushnellCoreDs30,
+      },
+      {
+        nombre: "Rexing H1 16 MP HI",
+        descripcion:
+          "Cámara trampa costo-efectiva, rápida velocidad de disparo, video Full HD.",
+        etiquetas: ["Foto-trampeo", "Costo-efectiva"],
+        imagen: imgRexingH1,
+      },
+      {
+        nombre: "Swarovski ATS 65 HD",
+        descripcion:
+          "Telescopio terrestre de fluoruro con ocular 20-60x. Alta fidelidad de color, ideal para digiscoping. Incluye trípode Manfrotto.",
+        etiquetas: ["Óptica", "Digiscoping"],
+        imagen: imgSwarovskiScope,
+      },
+      {
+        nombre: "Hides fotográficos",
+        descripcion:
+          "Estructuras autoarmables o tipo manta para observación indetectable.",
+        etiquetas: ["Observación", "Soporte"],
+        imagen: imgHides,
+      },
+      {
+        nombre: "Atractores olfativos",
+        descripcion:
+          "Fórmulas específicas para carnívoros, nutrias y ciervos de larga duración.",
+        etiquetas: ["Atractores"],
+        ctaTexto: "Consultar disponibilidad →",
+      },
+    ],
+  },
+];
+---
+
+<section id="equipos" class="border-b border-stone-200 bg-white py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="max-w-2xl">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Catálogo</p>
+      <h2 class="mt-3 font-display text-3xl font-bold text-stone-900 sm:text-4xl">
+        Equipos de precisión, listos para operar en terreno
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-stone-600">
+        Instrumentación real de arriendo y tecnología propia de monitoreo. Cada unidad se entrega configurada,
+        testeada y acompañada de la documentación necesaria para el registro en campañas de campo.
+      </p>
+    </div>
+
+    <div class="mt-14 space-y-14">
+      {
+        categorias.map((cat) => (
+          <div class={cat.destaque ? "categoria categoria-destaque" : "categoria"}>
+            <div class="categoria-head">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">{cat.sub}</p>
+                <h3 class="mt-1 font-display text-2xl font-bold text-stone-900">{cat.titulo}</h3>
+              </div>
+              <p class="categoria-desc">{cat.descripcion}</p>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {
+                cat.productos.map((p) => (
+                  <article class="card">
+                    {
+                      p.imagen && (
+                        <Image
+                          src={p.imagen}
+                          alt={p.nombre}
+                          class="mb-4 w-full h-44 sm:h-52 rounded-xl object-contain p-2 md:p-4 bg-white/50"
+                        />
+                      )
+                    }
+                    <span class="card-idx">◆</span>
+                    <h4 class="card-title">{p.nombre}</h4>
+                    <p class="card-desc">{p.descripcion}</p>
+                    <ul class="card-specs">
+                      {
+                        p.etiquetas.map((t) => (
+                          <li class="card-spec">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="card-spec-check" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{t}</span>
+                          </li>
+                        ))
+                      }
+                    </ul>
+                    <a href="#contacto" class="card-action">
+                      {p.ctaTexto ?? "Consultar arriendo →"}
+                    </a>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+

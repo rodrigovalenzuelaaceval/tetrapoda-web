@@ -1,0 +1,62 @@
+---
+// Hero — Vista 1 · Inicio.
+// Encabezado de portada con imagen de fondo optimizada (Astro) y overlay
+// oscuro para contraste, orientada al monitoreo riguroso de biodiversidad.
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/hero/paisaje.jpg';
+
+interface Props {
+  metricas: { valor: string; etiqueta: string }[];
+}
+
+const { metricas = [] } = Astro.props;
+---
+
+<section id="inicio" class="relative overflow-hidden bg-stone-900 text-white">
+  <!-- Imagen de fondo -->
+  <Image
+    src={heroImage}
+    alt="Paisaje cenital - Tetrapoda SpA"
+    class="absolute inset-0 w-full h-full object-cover z-0"
+  />
+  <!-- Overlay oscuro para legibilidad del texto -->
+  <div class="absolute inset-0 bg-gray-900/60 z-10"></div>
+
+  <!-- Transición suave desde la cabecera blanca -->
+  <div aria-hidden="true" class="relative z-20 h-1.5 w-full bg-gradient-to-r from-brand-orange via-brand-verde to-brand-azul"></div>
+
+  <div class="relative z-20 mx-auto max-w-6xl px-6 pb-24 pt-20 lg:pb-32 lg:pt-24">
+    <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-orange-glow">
+      Arriendo de equipos · Desarrollo tecnológico propio
+    </p>
+    <h1 class="max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+      Instrumentos de campo para un monitoreo de biodiversidad riguroso y replicable
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-200">
+      Tetrapoda® provee equipos y soporte técnico para estudios ecológicos, evaluaciones ambientales y proyectos
+      de investigación. Arrendamos equipos de distintas marcas y desarrollamos hardware y software propios, con
+      datos confiables capturados en el hábitat exacto donde ocurre la biodiversidad.
+    </p>
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+      <a href="#equipos" class="rounded-full bg-brand-orange px-7 py-3 text-center font-semibold text-white shadow-lg transition hover:bg-brand-orange-flame">
+        Explorar catálogo de equipos
+      </a>
+      <a href="#contacto" class="rounded-full border border-stone-500 px-7 py-3 text-center font-semibold text-white transition hover:border-brand-orange hover:text-brand-orange">
+        Solicitar cotización
+      </a>
+    </div>
+
+    <!-- Métricas de respaldo -->
+    <dl class="mt-16 grid grid-cols-2 gap-6 border-t border-stone-700 pt-8 sm:grid-cols-4">
+      {
+        metricas.map((m) => (
+          <div>
+            <dt class="sr-only">{m.etiqueta}</dt>
+            <dd class="font-mono text-3xl font-bold text-brand-orange">{m.valor}</dd>
+            <dd class="mt-1 text-sm text-stone-300">{m.etiqueta}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

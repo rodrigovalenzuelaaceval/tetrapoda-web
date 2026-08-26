@@ -1,0 +1,28 @@
+---
+// Página de inicio.
+// Orquesta las cuatro vistas como componentes autónomos:
+// Hero (Inicio), Catalogo (Equipos & Desarrollo Tecnológico), WebApp
+// (Servicios y Herramientas Digitales) y Contacto.
+// Cada vista vive en src/components/views/ con su propio marcado y estilos.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/views/Hero.astro";
+import Catalogo from "../components/views/Catalogo.astro";
+import WebApp from "../components/views/WebApp.astro";
+import Contacto from "../components/views/Contacto.astro";
+
+const metricas: { valor: string; etiqueta: string }[] = [
+  { valor: "24/7", etiqueta: "Monitoreo pasivo autónomo" },
+  { valor: "<2%", etiqueta: "Ocurrencia de fallas de captura" },
+  { valor: "100%", etiqueta: "Datos trazables y exportables" },
+  { valor: "2", etiqueta: "Líneas: Arriendo y Desarrollo Zéfiro" },
+];
+---
+
+<BaseLayout title="Tetrapoda SpA — Tecnología y ciencia al servicio del monitoreo de biodiversidad">
+  <main>
+    <Hero metricas={metricas} />
+    <Catalogo />
+    <WebApp />
+    <Contacto />
+  </main>
+</BaseLayout>
