@@ -39,6 +39,16 @@ export const equipos: Producto[] = [
       "Zéfiro Strix es una estación de monitoreo bioacústico diseñada para detectar aves nocturnas, especialmente búhos, mediante la técnica de playback y grabación de respuesta. Desarrollado por Tetrapoda en Chile, el dispositivo automatiza un proceso que tradicionalmente exige horas de trabajo de campo, reproduce el llamado de la especie objetivo, graba la respuesta si la hay y registra cada sesión con fecha, hora y coordenadas UTM listas para incorporar a un informe de cumplimiento ambiental bajo normativa SEA.",
     etiquetas: ["Bioacústica", "Playback", "Log coordenadas UTM, temperatura, humedad, presión atmosférica", "Arriendo"],
     imagen: imgZefiroStrix,
+    especificaciones: [
+      "Procesador ESP32-S3",
+      "Captura de audio digital I2S",
+      "Reproducción de vocalizaciones mediante PCM5102A",
+      "Doble ranura para tarjeta microSD",
+      "Reloj de tiempo real con respaldo",
+      "Indicadores visuales LED RGB",
+      "Carga vía USB-C",
+      "Alimentación: carga por USB-C mediante circuito integrado dedicado",
+    ],
     descripcionLarga: [
       {
         titulo: "Una técnica de terreno probada, ahora automatizada",
@@ -75,6 +85,13 @@ export const equipos: Producto[] = [
       "Zéfiro-Puma es un señuelo acústico programable diseñado para maximizar el registro de fauna elusiva en terreno. Reproduce llamados de presas, vocalizaciones conespecíficas o cantos de anfibios según la campaña, atrayendo al animal hacia el punto exacto donde se necesita, ya sea frente a una cámara trampa o durante un desafío de playback para estudios de línea base bajo normativa SEA.",
     etiquetas: ["Señuelo acústico", "Amplificador Clase D", "Tarjeta microSD", "Arriendo"],
     imagen: imgZefiroPuma,
+    especificaciones: [
+      "Amplificador Clase D (consume energía solo durante la emisión de sonido)",
+      "Batería Li-Ion 18650 de larga autonomía",
+      "Tarjeta microSD para archivos de audio propios (formato mp3 o wav)",
+      "Modos de reproducción configurables por micro interruptores: bucle continuo, una vez por activación, o aleatorio",
+      "Chasis en PLA+ de tono oscuro, diseñado para camuflarse en terreno",
+    ],
     descripcionLarga: [
       {
         titulo: "Un señuelo versátil para distintos protocolos de terreno",
