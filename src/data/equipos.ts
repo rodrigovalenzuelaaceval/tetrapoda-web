@@ -36,17 +36,70 @@ export const equipos: Producto[] = [
     slug: "zefiro-strix",
     nombre: "Tetrapoda® Zéfiro Strix",
     descripcion:
-      "Estación automatizada de monitoreo bioacústico para aves nocturnas. Configurable vía app celular por Bluetooth. Sincronización GPS automática, registra fecha, hora, temperatura, humedad relativa, presión atmosférica y coordenadas UTM.",
+      "Zéfiro Strix es una estación de monitoreo bioacústico diseñada para detectar aves nocturnas, especialmente búhos, mediante la técnica de playback y grabación de respuesta. Desarrollado por Tetrapoda en Chile, el dispositivo automatiza un proceso que tradicionalmente exige horas de trabajo de campo, reproduce el llamado de la especie objetivo, graba la respuesta si la hay y registra cada sesión con fecha, hora y coordenadas UTM listas para incorporar a un informe de cumplimiento ambiental bajo normativa SEA.",
     etiquetas: ["Bioacústica", "Playback", "Log coordenadas UTM, temperatura, humedad, presión atmosférica", "Arriendo"],
     imagen: imgZefiroStrix,
+    descripcionLarga: [
+      {
+        titulo: "Una técnica de terreno probada, ahora automatizada",
+        texto: "El playback y grabación de respuesta es uno de los métodos más confiables para detectar presencia de aves nocturnas en un punto de monitoreo, pero depende de que alguien esté físicamente ahí, en el horario correcto, con el equipo correcto. Zéfiro Strix traslada ese trabajo a un dispositivo autónomo que opera solo, en los horarios que definas, sin supervisión humana durante la sesión.",
+      },
+      {
+        texto: "El equipo reproduce el llamado de la especie objetivo a través de un parlante integrado, graba la respuesta con un micrófono de calidad profesional y guarda cada sesión en una tarjeta microSD con metadatos completos: fecha, hora exacta (sincronizada por reloj de tiempo real), y coordenadas UTM del punto de monitoreo. Todo queda estructurado para incorporarse directo a un informe de cumplimiento ambiental, sin trabajo adicional de ordenamiento de datos.",
+      },
+      {
+        titulo: "Diseño pensado para condiciones reales de terreno",
+        texto: "Zéfiro Strix no es un prototipo de laboratorio adaptado a la fuerza para uso exterior, se diseñó desde el inicio para operar en las condiciones que enfrenta un equipo de monitoreo ambiental en Chile: baterías de larga duración con carga USB C, sensores ambientales integrados para registrar temperatura y humedad junto a cada grabación, y un modo de programación automática basado en cálculo solar, que ajusta los horarios de actividad según el amanecer y atardecer real del punto donde está instalado, sin que nadie tenga que recalcularlo manualmente sesión tras sesión.",
+      },
+      {
+        titulo: "Configuración sin fricción, incluso para quien no es técnico",
+        texto: "Toda la configuración del dispositivo (horarios, especies, volumen, ubicación del punto de monitoreo) se hace desde la aplicación móvil Zéfiro, disponible para Android. La app se conecta directo al dispositivo por Bluetooth de baja energía, sin necesidad de redes WiFi intermedias ni cables de datos, y captura automáticamente las coordenadas UTM del punto usando el GPS del propio teléfono, eliminando el paso manual de buscar coordenadas en otra aplicación y transcribirlas a mano.",
+      },
+      {
+        texto: "El objetivo desde el diseño de la app fue que cualquier persona del equipo de terreno, tenga o no formación técnica en electrónica, pueda dejar un dispositivo operando correctamente en minutos.",
+      },
+      {
+        titulo: "Listo para cumplimiento normativo",
+        texto: "Cada sesión registrada por Zéfiro Strix queda con la trazabilidad que exige un proceso de monitoreo bajo el Sistema de Evaluación de Impacto Ambiental: fecha, hora, coordenadas, y grabación asociada, todo en un formato estándar fácil de exportar e incorporar a un informe. Para consultoras ambientales y titulares de proyectos, esto significa menos horas de trabajo administrativo por cada campaña de monitoreo, y una base de datos de audio más consistente que la que suele generarse con métodos manuales.",
+      },
+      {
+        titulo: "Arriendo, según lo que necesite tu proyecto",
+        texto: "Zéfiro Strix está disponible para arriendo, según el alcance y duración de tu proyecto de monitoreo. Contáctanos para conversar el plan de arriendo que mejor se ajuste a tu caso.",
+      },
+    ],
   },
   {
     slug: "zefiro-puma",
     nombre: "Tetrapoda® Zéfiro-Puma",
     descripcion:
-      "Señuelo acústico programable. Reproduce audios personalizables vía microSD (aves, anfibios, mamíferos). Chasis en verde oliva, amplificador clase D de alta potencia, tamaño reducido y alta eficiencia. Batería Li-Ion de altísima autonomía.",
+      "Zéfiro-Puma es un señuelo acústico programable diseñado para maximizar el registro de fauna elusiva en terreno. Reproduce llamados de presas, vocalizaciones conespecíficas o cantos de anfibios según la campaña, atrayendo al animal hacia el punto exacto donde se necesita, ya sea frente a una cámara trampa o durante un desafío de playback para estudios de línea base bajo normativa SEA.",
     etiquetas: ["Señuelo acústico", "Amplificador Clase D", "Tarjeta microSD", "Arriendo"],
     imagen: imgZefiroPuma,
+    descripcionLarga: [
+      {
+        titulo: "Un señuelo versátil para distintos protocolos de terreno",
+        texto: "Zéfiro-Puma nació para atraer carnívoros elusivos hacia cámaras trampa, pero su uso se ha extendido de forma natural a otros protocolos de terreno: desafíos de playback para aves y anfibios, y campañas de detección dentro de estudios de línea base bajo el Sistema de Evaluación de Impacto Ambiental. Un mismo dispositivo, distintos audios según lo que necesite tu campaña.",
+      },
+      {
+        titulo: "Tu propia biblioteca de sonidos, en una tarjeta microSD",
+        texto: "Zéfiro-Puma no viene limitado a un catálogo fijo de llamados. Carga los audios que necesites en una tarjeta microSD, en formato mp3 o wav, ya sea el canto de una viscacha, un coro de anfibios o el llamado de un ave objetivo, y cámbialos entre campañas según lo exija cada estudio. Basta con nombrar los archivos de forma numérica para asegurar el orden de reproducción, y el dispositivo hace el resto.",
+      },
+      {
+        texto: "Los modos de reproducción (bucle continuo, una sola vez por activación, o aleatorio) se configuran mediante micro interruptores en la placa, permitiendo adaptar el comportamiento del señuelo al protocolo específico de cada campaña.",
+      },
+      {
+        titulo: "Pensado para terreno, no solo para el banco de pruebas",
+        texto: "El amplificador Clase D integrado consume energía únicamente durante la emisión del sonido, extendiendo la autonomía de la batería Li-Ion 18650 muchísimo más allá de lo que permitiría un amplificador convencional. El chasis, fabricado en PLA+ de tono oscuro, está pensado para mimetizarse entre la hojarasca o sujeto a troncos bajos, sin llamar la atención del animal objetivo ni de terceros.",
+      },
+      {
+        titulo: "Uso responsable",
+        texto: "El uso de sonidos de presas o llamados conespecíficos es una herramienta poderosa, y como toda herramienta poderosa, requiere criterio. Evita instalarlo cerca de zonas residenciales o campamentos, y desplázalo periódicamente entre sesiones para prevenir la habituación de la fauna local, tanto por rigor científico como por respeto al comportamiento natural de las especies que estás estudiando.",
+      },
+      {
+        titulo: "Arriendo, según tu campaña",
+        texto: "Zéfiro-Puma está disponible para arriendo, pensado tanto para investigadores independientes con campañas puntuales como para consultoras que lo necesitan de forma recurrente en distintos proyectos. Contáctanos para conversar el plan de arriendo que mejor se ajuste a tu estudio.",
+      },
+    ],
   },
   {
     slug: "song-meter-mini-bat-2-aa",
