@@ -15,10 +15,10 @@ const {
 
 const site = new URL(Astro.url.pathname, Astro.site);
 const navLinks: { href: string; label: string }[] = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#equipos", label: "Equipos" },
-  { href: "#webapp", label: "Web-App" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#inicio", label: "Inicio" },
+  { href: "/#equipos", label: "Equipos" },
+  { href: "/#webapp", label: "Web-App" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 ---
 
@@ -93,7 +93,7 @@ const navLinks: { href: string; label: string }[] = [
             ))
           }
           <a
-            href="#contacto"
+            href="/#contacto"
             class="rounded-full bg-brand-orange px-5 py-2 text-brand-black shadow-sm transition hover:bg-brand-orange-glow"
           >
             Cotizar
@@ -135,10 +135,10 @@ const navLinks: { href: string; label: string }[] = [
         <div>
           <h3 class="text-sm font-semibold uppercase tracking-wider text-stone-200">Explora</h3>
           <ul class="mt-4 space-y-2 text-sm">
-            <li><a href="#inicio" class="transition-colors hover:text-brand-orange">Inicio</a></li>
-            <li><a href="#equipos" class="transition-colors hover:text-brand-orange">Catálogo de equipos</a></li>
-            <li><a href="#webapp" class="transition-colors hover:text-brand-orange">Web-App</a></li>
-            <li><a href="#contacto" class="transition-colors hover:text-brand-orange">Contacto</a></li>
+            <li><a href="/#inicio" class="transition-colors hover:text-brand-orange">Inicio</a></li>
+            <li><a href="/#equipos" class="transition-colors hover:text-brand-orange">Catálogo de equipos</a></li>
+            <li><a href="/#webapp" class="transition-colors hover:text-brand-orange">Web-App</a></li>
+            <li><a href="/#contacto" class="transition-colors hover:text-brand-orange">Contacto</a></li>
           </ul>
         </div>
         <div>

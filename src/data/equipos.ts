@@ -25,6 +25,10 @@ export interface Producto {
   servicioRelacionado?: { texto: string; href: string }; // nota secundaria: equipo → servicio de análisis
   especificaciones?: string[]; // ficha técnica real, un bullet por línea
   incluye?: string[]; // qué incluye el arriendo, un bullet por línea
+  descripcionLarga?: { titulo?: string; texto: string }[];
+  // Array de párrafos con subtítulo opcional en negrita. Cuando existe,
+  // la página de detalle lo usa en vez de `descripcion` para el cuerpo
+  // completo (texto real transcrito del sitio anterior, NO resumido).
 }
 
 export const equipos: Producto[] = [
@@ -191,6 +195,14 @@ export const equipos: Producto[] = [
       "Hide tipo manta: diseño liviano que permite desplazarse y cambiar de punto de observación con mayor comodidad",
       "Diseñados para minimizar la detección por parte de la fauna, reduciendo el sesgo en el comportamiento observado",
     ],
+    descripcionLarga: [
+      {
+        texto: "Los hides, también conocidos como escondites fotográficos o puestos de observación, son estructuras diseñadas para que los observadores de vida silvestre, como biólogos, naturalistas y fotógrafos, puedan acercarse a los animales sin ser detectados. Su principal utilidad es permitir un estudio y una documentación más detallados de la biodiversidad, minimizando el impacto humano en el entorno natural. Son además una gran herramienta para la investigación científica, por cuanto permiten observar el comportamiento natural de las especies, como patrones de alimentación, reproducción, interacciones sociales y migración. Esto es muy importante, ya que la presencia humana a menudo altera estos comportamientos, sesgando los datos. Por otra parte, para los fotógrafos, los hides ofrecen la oportunidad de capturar imágenes de alta calidad de animales en su entorno natural, sin perturbarlos. Esto se traduce en fotografías más auténticas y emotivas, ya que los animales se comportan de forma más natural.",
+      },
+      {
+        texto: "En Tetrapoda SpA contamos con hides autoarmables que te permitirán contar con un espacio cómodo para tomar datos, tomar fotografías u observar con un scope. Y si prefieres andar con menos carga, puedes probar un hide tipo manta que te dará la posibilidad de moverte con ligereza y cambiar de spot con mayor comodidad.",
+      },
+    ],
   },
   {
     slug: "atractores-olfativos",
@@ -203,6 +215,23 @@ export const equipos: Producto[] = [
       "Atrayente para carnívoros: formulado para pumas, zorros y felinos menores; larga duración y amplio alcance",
       "Atrayente para nutrias: combinación de extractos de mariscos y aceites de pescado, aplicable en rocas y troncos",
       "Atrayente para ciervos: replica señales de comunicación entre ciervos, efectivo en época de apareamiento y el resto del año",
+    ],
+    descripcionLarga: [
+      {
+        texto: "Tenemos una selección de atractores olfativos de alta calidad diseñados para el monitoreo y estudio de fauna, con fórmulas especializadas para diferentes especies. Estos productos se basan en la biología y comportamiento de los animales para lograr una respuesta efectiva y confiable en el campo.",
+      },
+      {
+        titulo: "Atrayentes para Carnívoros",
+        texto: "Nuestros atrayentes para carnívoros están formulados para captar la atención de especies como pumas, zorros y felinos menores. La fórmula de estos atrayentes resultan irresistiblemente llamativos. Este tipo de señuelo está diseñado para perdurar y tener un amplio alcance, asegurando que los animales en un área extensa sean atraídos hacia el punto de monitoreo.",
+      },
+      {
+        titulo: "Atrayentes para Nutrias",
+        texto: "Para el monitoreo de nutrias ofrecemos un atrayente especializado que se basa en una combinación de extractos de mariscos y aceites de pescado que son muy atractivos para estas especies. La fórmula está diseñada para ser aplicada en superficies como rocas y troncos, creando un rastro olfativo que guía a las nutrias hacia las cámaras trampa o puntos de observación.",
+      },
+      {
+        titulo: "Atrayentes para Ciervos",
+        texto: "Ofrecemos un atrayente especializado para ciervos, diseñado para captar su atención de forma efectiva y segura. Este producto está formulado con una mezcla de compuestos que replican de manera precisa las señales de comunicación que los ciervos usan entre sí, tanto durante la temporada de apareamiento como en otros momentos del año.",
+      },
     ],
   },
 ];
