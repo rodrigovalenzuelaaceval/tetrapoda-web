@@ -186,6 +186,11 @@ export const equipos: Producto[] = [
       "Estructuras autoarmables o tipo manta para observación indetectable.",
     etiquetas: ["Observación", "Soporte"],
     imagen: imgHides,
+    especificaciones: [
+      "Hide autoarmable: estructura fija que ofrece un espacio cómodo para tomar datos, fotografiar o usar un scope",
+      "Hide tipo manta: diseño liviano que permite desplazarse y cambiar de punto de observación con mayor comodidad",
+      "Diseñados para minimizar la detección por parte de la fauna, reduciendo el sesgo en el comportamiento observado",
+    ],
   },
   {
     slug: "atractores-olfativos",
@@ -194,5 +199,10 @@ export const equipos: Producto[] = [
       "Fórmulas específicas para carnívoros, nutrias y ciervos de larga duración.",
     etiquetas: ["Atractores"],
     ctaTexto: "Consultar disponibilidad →",
+    especificaciones: [
+      "Atrayente para carnívoros: formulado para pumas, zorros y felinos menores; larga duración y amplio alcance",
+      "Atrayente para nutrias: combinación de extractos de mariscos y aceites de pescado, aplicable en rocas y troncos",
+      "Atrayente para ciervos: replica señales de comunicación entre ciervos, efectivo en época de apareamiento y el resto del año",
+    ],
   },
 ];
