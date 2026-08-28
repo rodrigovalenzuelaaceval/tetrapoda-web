@@ -2,6 +2,8 @@
 // BaseLayout — layout global con <head>, SEO técnico, Open Graph/Twitter,
 // fuentes (Montserrat, Inter, JetBrains Mono), favicon y header/footer definitivos.
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import plumaColor from "../assets/pluma-color.png";
 
 interface Props {
   title?: string;
@@ -46,6 +48,8 @@ const navLinks: { href: string; label: string }[] = [
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
+    <!-- TODO(Rod): generar favicon real a partir de pluma-color.png
+    (ej. favicon.ico/png de 32x32 y 16x16) y reemplazar este href -->
     <!-- Favicon: logo Tetrapoda -->
     <link rel="icon" type="image/png" href="/logo solo.png" />
 
@@ -125,7 +129,7 @@ const navLinks: { href: string; label: string }[] = [
       <div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div class="flex items-center gap-2 font-display text-lg font-bold text-white">
-            <img src="/logo solo.png" alt="Logo solo Tetrapoda" width="30" height="30" class="h-8 w-8 object-contain" loading="lazy" />
+            <Image src={plumaColor} alt="Logo solo Tetrapoda" class="h-8 w-8 object-contain" loading="lazy" />
             Tetrapoda<span class="text-brand-orange">SpA</span>
           </div>
           <p class="mt-4 text-sm leading-relaxed text-stone-400">
@@ -158,7 +162,7 @@ const navLinks: { href: string; label: string }[] = [
       </div>
       <div class="border-t border-stone-800">
         <div class="mx-auto max-w-6xl px-6 py-5 text-center text-xs text-stone-500">
-          © {new Date().getFullYear()} Tetrapoda SpA — Consultoría ambiental y arriendo de equipos. Todos los derechos reservados.
+          © {new Date().getFullYear()} Tetrapoda SpA — Arriendo de equipos y desarrollo de software y hardware para el monitoreo de biodiversidad. Todos los derechos reservados.
         </div>
       </div>
     </footer>
