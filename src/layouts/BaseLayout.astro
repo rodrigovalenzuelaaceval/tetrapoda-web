@@ -140,10 +140,13 @@ const navLinks: { href: string; label: string }[] = [
         <div>
           <h3 class="text-sm font-semibold uppercase tracking-wider text-stone-200">Explora</h3>
           <ul class="mt-4 space-y-2 text-sm">
-            <li><a href="/#inicio" class="transition-colors hover:text-brand-orange">Inicio</a></li>
-            <li><a href="/#equipos" class="transition-colors hover:text-brand-orange">Catálogo de equipos</a></li>
-            <li><a href="/#webapp" class="transition-colors hover:text-brand-orange">Web-App</a></li>
-            <li><a href="/#contacto" class="transition-colors hover:text-brand-orange">Contacto</a></li>
+            {
+              navLinks.map((l) => (
+                <li>
+                  <a href={l.href} class="transition-colors hover:text-brand-orange">{l.label}</a>
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div>
