@@ -28,6 +28,7 @@ export interface Producto {
   imagen?: ImageMetadata; // fotografía del equipo (renderizada con <Image />)
   heroFondo?: ImageMetadata; // foto de fondo del hero de la página de detalle (con overlay oscuro encima)
   heroFondoPosition?: string; // valor CSS object-position para recortar heroFondo sin cortar el dispositivo (ej. "center 20%")
+  heroOverlayOpacity?: number; // 0-100, opacidad del filtro oscuro sobre heroFondo
   galeria?: ImageMetadata[]; // fotos adicionales del equipo, renderizadas en la galería de la página de detalle
   ctaTexto?: string; // texto del CTA; por defecto "Consultar arriendo →"
   servicioRelacionado?: { texto: string; href: string }; // nota secundaria: equipo → servicio de análisis
@@ -48,7 +49,7 @@ export const equipos: Producto[] = [
     etiquetas: ["Bioacústica", "Playback", "Log coordenadas UTM, temperatura, humedad, presión atmosférica", "Arriendo"],
     imagen: imgZefiroStrix,
     heroFondo: imgZSTerr01,
-    heroFondoPosition: "center 20%",
+    heroFondoPosition: "center 65%",
     galeria: [imgZSTerr02],
     especificaciones: [
       "Procesador ESP32-S3",
@@ -97,6 +98,7 @@ export const equipos: Producto[] = [
     etiquetas: ["Señuelo acústico", "Amplificador Clase D", "Tarjeta microSD", "Arriendo"],
     imagen: imgZefiroPuma,
     heroFondo: imgZPTerr01,
+    heroOverlayOpacity: 25,
     galeria: [imgZPTerr02],
     especificaciones: [
       "Amplificador Clase D (consume energía solo durante la emisión de sonido)",
@@ -112,7 +114,7 @@ export const equipos: Producto[] = [
       },
       {
         titulo: "Tu propia biblioteca de sonidos, en una tarjeta microSD",
-        texto: "Zéfiro-Puma no viene limitado a un catálogo fijo de llamados. Carga los audios que necesites en una tarjeta microSD, en formato mp3 o wav, ya sea el canto de una viscacha, un coro de anfibios o el llamado de un ave objetivo, y cámbialos entre campañas según lo exija cada estudio. Basta con nombrar los archivos de forma numérica para asegurar el orden de reproducción, y el dispositivo hace el resto.",
+        texto: "Zéfiro-Puma no viene limitado a un catálogo fijo de llamados. Carga los audios que necesites en una tarjeta microSD, en formato mp3 o wav, ya sea el canto de una vizcacha, un coro de anfibios o el llamado de un ave objetivo, y cámbialos entre campañas según lo exija cada estudio. Basta con nombrar los archivos de forma numérica para asegurar el orden de reproducción, y el dispositivo hace el resto.",
       },
       {
         texto: "Los modos de reproducción (bucle continuo, una sola vez por activación, o aleatorio) se configuran mediante micro interruptores en la placa, permitiendo adaptar el comportamiento del señuelo al protocolo específico de cada campaña.",
