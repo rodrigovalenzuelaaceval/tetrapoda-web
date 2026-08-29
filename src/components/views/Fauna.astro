@@ -1,0 +1,36 @@
+---
+// Fauna — Sección "Evidencia de campo" · Fotos de fauna capturada con cámaras trampa.
+// Las imágenes no están identificadas con certeza, por eso no llevan nombres de especie ni captions.
+import { Image } from "astro:assets";
+import imgFauna01 from "../../assets/fauna/fauna-01.jpg";
+import imgFauna02 from "../../assets/fauna/fauna-02.jpg";
+import imgFauna03 from "../../assets/fauna/fauna-03.jpg";
+import imgFauna04 from "../../assets/fauna/fauna-04.jpg";
+import imgFauna05 from "../../assets/fauna/fauna-05.jpg";
+import imgFauna06 from "../../assets/fauna/fauna-06.jpg";
+import imgFauna07 from "../../assets/fauna/fauna-07.jpg";
+
+const fotos = [imgFauna01, imgFauna02, imgFauna03, imgFauna04, imgFauna05, imgFauna06, imgFauna07];
+---
+
+<section id="fauna" class="bg-stone-50 py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="max-w-2xl">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Evidencia de campo</p>
+      <h2 class="mt-3 font-display text-3xl font-bold text-stone-900 sm:text-4xl">
+        Así ve la fauna chilena a través de nuestras cámaras
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-stone-600">
+        Monitoreo pasivo real: registros sin intervención humana capturados por nuestras cámaras trampa en terreno.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+      {
+        fotos.map((foto) => (
+          <Image src={foto} alt="" class="rounded-xl object-cover w-full h-48" />
+        ))
+      }
+    </div>
+  </div>
+</section>

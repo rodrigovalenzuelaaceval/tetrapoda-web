@@ -2,6 +2,7 @@
 // Página dinámica por equipo — /equipos/{slug}
 // Genera una ruta por cada equipo del catálogo compartido (src/data/equipos.ts).
 // Estructura: hero corta -> descripción -> especificaciones (chips + ficha) -> CTA.
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { equipos } from "../../data/equipos";
 import type { Producto } from "../../data/equipos";
@@ -152,6 +153,24 @@ const fichaPlaceholders = [
                 ))
               }
             </ul>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Galería -->
+    {
+      equipo.galeria && (
+        <section class="border-b border-stone-200 bg-white py-16">
+          <div class="mx-auto max-w-4xl px-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Galería</p>
+            <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {
+                equipo.galeria.map((foto) => (
+                  <Image src={foto} alt="" class="rounded-xl object-cover w-full h-56" />
+                ))
+              }
+            </div>
           </div>
         </section>
       )

@@ -14,6 +14,13 @@ import imgBushnellCoreDs30 from "../assets/equipos/bushnell_30_119977cb.jpg";
 import imgRexingH1 from "../assets/equipos/rexing_16mph1.jpg";
 import imgSwarovskiScope from "../assets/equipos/scope.jpg";
 import imgHides from "../assets/equipos/hide.jpg";
+// Galerías Zéfiro Strix / Zéfiro-Puma: render + fotos reales de terreno.
+import imgZPRender from "../assets/equipos/zefiro-puma/ZP-render.jpg";
+import imgZPTerr01 from "../assets/equipos/zefiro-puma/ZP-terr01.jpg";
+import imgZPTerr02 from "../assets/equipos/zefiro-puma/ZP-terr02.jpg";
+import imgZSRender from "../assets/equipos/zefiro-strix/ZS-render.jpg";
+import imgZSTerr01 from "../assets/equipos/zefiro-strix/ZS-terr01.png";
+import imgZSTerr02 from "../assets/equipos/zefiro-strix/ZS-terr02.png";
 
 export interface Producto {
   slug: string; // ruta /equipos/{slug} (kebab-case, sin tildes)
@@ -21,6 +28,7 @@ export interface Producto {
   descripcion: string;
   etiquetas: string[];
   imagen?: ImageMetadata; // fotografía del equipo (renderizada con <Image />)
+  galeria?: ImageMetadata[]; // fotos adicionales del equipo (render + terreno), renderizadas en la página de detalle
   ctaTexto?: string; // texto del CTA; por defecto "Consultar arriendo →"
   servicioRelacionado?: { texto: string; href: string }; // nota secundaria: equipo → servicio de análisis
   especificaciones?: string[]; // ficha técnica real, un bullet por línea
@@ -39,6 +47,7 @@ export const equipos: Producto[] = [
       "Zéfiro Strix es una estación de monitoreo bioacústico diseñada para detectar aves nocturnas, especialmente búhos, mediante la técnica de playback y grabación de respuesta. Desarrollado por Tetrapoda en Chile, el dispositivo automatiza un proceso que tradicionalmente exige horas de trabajo de campo, reproduce el llamado de la especie objetivo, graba la respuesta si la hay y registra cada sesión con fecha, hora y coordenadas UTM listas para incorporar a un informe de cumplimiento ambiental bajo normativa SEA.",
     etiquetas: ["Bioacústica", "Playback", "Log coordenadas UTM, temperatura, humedad, presión atmosférica", "Arriendo"],
     imagen: imgZefiroStrix,
+    galeria: [imgZSRender, imgZSTerr01, imgZSTerr02],
     especificaciones: [
       "Procesador ESP32-S3",
       "Captura de audio digital I2S",
@@ -85,6 +94,7 @@ export const equipos: Producto[] = [
       "Zéfiro-Puma es un señuelo acústico programable diseñado para maximizar el registro de fauna elusiva en terreno. Reproduce llamados de presas, vocalizaciones conespecíficas o cantos de anfibios según la campaña, atrayendo al animal hacia el punto exacto donde se necesita, ya sea frente a una cámara trampa o durante un desafío de playback para estudios de línea base bajo normativa SEA.",
     etiquetas: ["Señuelo acústico", "Amplificador Clase D", "Tarjeta microSD", "Arriendo"],
     imagen: imgZefiroPuma,
+    galeria: [imgZPRender, imgZPTerr01, imgZPTerr02],
     especificaciones: [
       "Amplificador Clase D (consume energía solo durante la emisión de sonido)",
       "Batería Li-Ion 18650 de larga autonomía",
