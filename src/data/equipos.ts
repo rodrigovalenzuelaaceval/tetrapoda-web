@@ -50,6 +50,7 @@ export const equipos: Producto[] = [
     imagen: imgZefiroStrix,
     heroFondo: imgZSTerr01,
     heroFondoPosition: "center 65%",
+    heroOverlayOpacity: 0,
     galeria: [imgZSTerr02],
     especificaciones: [
       "Procesador ESP32-S3",
@@ -71,7 +72,11 @@ export const equipos: Producto[] = [
       },
       {
         titulo: "Diseño pensado para condiciones reales de terreno",
-        texto: "Zéfiro Strix no es un prototipo de laboratorio adaptado a la fuerza para uso exterior, se diseñó desde el inicio para operar en las condiciones que enfrenta un equipo de monitoreo ambiental en Chile: baterías de larga duración con carga USB C, sensores ambientales integrados para registrar temperatura y humedad junto a cada grabación, y un modo de programación automática basado en cálculo solar, que ajusta los horarios de actividad según el amanecer y atardecer real del punto donde está instalado, sin que nadie tenga que recalcularlo manualmente sesión tras sesión.",
+        texto: "Zéfiro Strix no es un prototipo de laboratorio adaptado a la fuerza para uso exterior, se diseñó desde el inicio para operar en las condiciones que enfrenta un equipo de monitoreo ambiental en Chile: baterías de larga duración con carga USB C, sensores ambientales integrados que registran temperatura, humedad y presión atmosférica en un log asociado a cada grabación, y un modo de programación automática basado en cálculo solar, que ajusta los horarios de actividad según el amanecer y atardecer real del punto donde está instalado, sin que nadie tenga que recalcularlo manualmente sesión tras sesión.",
+      },
+      {
+        titulo: "Ajustado a la ventana horaria que exige el protocolo oficial",
+        texto: "La metodología de playback y grabación de respuesta para aves nocturnas, según lo indicado por la autoridad, debe ejecutarse dentro de una ventana horaria específica: una hora después del atardecer y una hora antes del amanecer. Zéfiro Strix automatiza exactamente esa ventana en cada sesión, aumentando el esfuerzo de muestreo sin depender de que un investigador esté físicamente presente durante ese horario. Esas horas que antes exigían presencia humana en terreno se pueden destinar a otras técnicas complementarias, como spotlight o búsqueda activa de fauna nocturna.",
       },
       {
         titulo: "Configuración sin fricción, incluso para quien no es técnico",
@@ -98,7 +103,7 @@ export const equipos: Producto[] = [
     etiquetas: ["Señuelo acústico", "Amplificador Clase D", "Tarjeta microSD", "Arriendo"],
     imagen: imgZefiroPuma,
     heroFondo: imgZPTerr01,
-    heroOverlayOpacity: 25,
+    heroOverlayOpacity: 0,
     galeria: [imgZPTerr02],
     especificaciones: [
       "Amplificador Clase D (consume energía solo durante la emisión de sonido)",
