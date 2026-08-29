@@ -43,6 +43,7 @@ const fichaPlaceholders = [
               src={equipo.heroFondo}
               alt=""
               class="absolute inset-0 w-full h-full object-cover z-0"
+              style={`object-position: ${equipo.heroFondoPosition ?? "center"}`}
             />
             <!-- Overlay oscuro para legibilidad del texto -->
             <div class="absolute inset-0 bg-gray-900/60 z-10"></div>

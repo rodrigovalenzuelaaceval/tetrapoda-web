@@ -27,6 +27,7 @@ export interface Producto {
   etiquetas: string[];
   imagen?: ImageMetadata; // fotografía del equipo (renderizada con <Image />)
   heroFondo?: ImageMetadata; // foto de fondo del hero de la página de detalle (con overlay oscuro encima)
+  heroFondoPosition?: string; // valor CSS object-position para recortar heroFondo sin cortar el dispositivo (ej. "center 20%")
   galeria?: ImageMetadata[]; // fotos adicionales del equipo, renderizadas en la galería de la página de detalle
   ctaTexto?: string; // texto del CTA; por defecto "Consultar arriendo →"
   servicioRelacionado?: { texto: string; href: string }; // nota secundaria: equipo → servicio de análisis
@@ -47,6 +48,7 @@ export const equipos: Producto[] = [
     etiquetas: ["Bioacústica", "Playback", "Log coordenadas UTM, temperatura, humedad, presión atmosférica", "Arriendo"],
     imagen: imgZefiroStrix,
     heroFondo: imgZSTerr01,
+    heroFondoPosition: "center 20%",
     galeria: [imgZSTerr02],
     especificaciones: [
       "Procesador ESP32-S3",
