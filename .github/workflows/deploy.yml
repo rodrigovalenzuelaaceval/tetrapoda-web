@@ -1,8 +1,10 @@
 name: Deploy a tetrapoda.cl
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+  # Disparo automático (push) desactivado temporalmente: el FTP falla por
+  # timeout (ticket de soporte #710411 con el hosting). Reactivar
+  # reemplazando este bloque por el de "push" una vez resuelto.
 
 jobs:
   build-and-deploy:
