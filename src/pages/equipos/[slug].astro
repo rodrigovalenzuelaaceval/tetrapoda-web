@@ -34,8 +34,22 @@ const fichaPlaceholders = [
 >
   <main>
     <!-- Hero corta -->
-    <section class="bg-stone-900 py-20 text-stone-100 sm:py-24">
-      <div class="mx-auto max-w-4xl px-6">
+    <section class="relative overflow-hidden bg-stone-900 py-20 text-stone-100 sm:py-24">
+      {
+        equipo.heroFondo && (
+          <>
+            <!-- Imagen de fondo (mismo patrón que src/components/views/Hero.astro) -->
+            <Image
+              src={equipo.heroFondo}
+              alt=""
+              class="absolute inset-0 w-full h-full object-cover z-0"
+            />
+            <!-- Overlay oscuro para legibilidad del texto -->
+            <div class="absolute inset-0 bg-gray-900/60 z-10"></div>
+          </>
+        )
+      }
+      <div class="relative z-20 mx-auto max-w-4xl px-6">
         <nav class="text-xs font-medium uppercase tracking-widest text-stone-500">
           <a href="/#equipos" class="text-brand-orange-glow hover:text-brand-orange-glow/80">
             Equipos
@@ -51,6 +65,22 @@ const fichaPlaceholders = [
         </h1>
       </div>
     </section>
+
+    <!-- Vista general -->
+    {
+      equipo.imagen && (
+        <section class="bg-stone-50 py-16">
+          <div class="mx-auto max-w-4xl px-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange">Vista general</p>
+            <Image
+              src={equipo.imagen}
+              alt={`${equipo.nombre} — vista general`}
+              class="mt-6 mx-auto w-full max-w-2xl rounded-2xl object-contain bg-white p-6"
+            />
+          </div>
+        </section>
+      )
+    }
 
     <!-- Descripción -->
     <section class="border-b border-stone-200 bg-white py-16">
@@ -167,7 +197,14 @@ const fichaPlaceholders = [
             <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {
                 equipo.galeria.map((foto) => (
-                  <Image src={foto} alt="" class="rounded-xl object-cover w-full h-56" />
+                  <button
+                    type="button"
+                    data-lightbox-src={foto.src}
+                    class="block w-full cursor-zoom-in overflow-hidden rounded-xl border-0 bg-transparent p-0 text-left"
+                    aria-label="Ampliar foto de la galería"
+                  >
+                    <Image src={foto} alt="" class="rounded-xl object-cover w-full h-56" />
+                  </button>
                 ))
               }
             </div>
@@ -194,4 +231,60 @@ const fichaPlaceholders = [
       </div>
     </section>
   </main>
+
+  <!-- Lightbox minimalista de la galería (JS plano, sin dependencias) -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto ampliada de la galería"
+  >
+    <img
+      id="lightbox-img"
+      alt=""
+      class="max-h-[90vh] max-w-[90vw] object-contain"
+    />
+    <button
+      id="lightbox-close"
+      type="button"
+      aria-label="Cerrar vista ampliada"
+      class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-stone-500/60 bg-black/50 text-2xl leading-none text-white transition hover:bg-stone-800"
+    >
+      ✕
+    </button>
+  </div>
 </BaseLayout>
+
+<script>
+  // Lightbox de la galería: muestra cada foto a tamaño completo.
+  // Implementado con JS plano (querySelectorAll + addEventListener), sin dependencias.
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxClose = document.getElementById("lightbox-close");
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+    lightboxImg.src = "";
+  }
+
+  // Abrir al hacer clic en cualquier miniatura con data-lightbox-src.
+  document.querySelectorAll("[data-lightbox-src]").forEach((btn) => {
+    btn.addEventListener("click", () => openLightbox(btn.dataset.lightboxSrc));
+  });
+
+  // Cerrar con el botón ✕.
+  lightboxClose.addEventListener("click", closeLightbox);
+
+  // Cerrar al hacer clic en el fondo oscuro (fuera de la imagen).
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+</script>
