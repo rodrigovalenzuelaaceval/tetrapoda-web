@@ -1,0 +1,102 @@
+---
+// Nosotros — Por qué nos llamamos así.
+// Hero corto + 4 secciones (bg-white / bg-stone-50 alternadas) sobre el origen
+// de los nombres propios: Tetrapoda®, Zéfiro, Érebo y LinneoDB.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import plumaColor from "../assets/pluma-color.png";
+---
+
+<BaseLayout
+  title="Nosotros — Por qué nos llamamos así · Tetrapoda SpA"
+  description="El origen de nuestros nombres: Tetrapoda®, la pluma, Zéfiro, Érebo y LinneoDB. La identidad detrás de nuestros equipos, software y productos."
+>
+  <main>
+    <!-- Hero corta -->
+    <section class="relative overflow-hidden bg-stone-900 py-20 text-stone-100 sm:py-24">
+      <div class="relative z-20 mx-auto max-w-4xl px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-orange-glow">
+          Nuestra identidad
+        </p>
+        <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
+          Por qué nos llamamos así
+        </h1>
+      </div>
+    </section>
+
+    <!-- Sección 1 — Tetrapoda® y la pluma -->
+    <section class="border-b border-stone-200 bg-white py-16">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
+          <div class="flex-1">
+            <h2 class="font-display text-2xl font-bold text-stone-900 sm:text-3xl">Tetrapoda®, y la pluma</h2>
+            <p class="mt-5 text-lg leading-relaxed text-stone-600">
+              Elegimos "Tetrapoda®" porque es, literalmente, el nombre del grupo al que pertenece casi toda la
+              fauna vertebrada terrestre que monitoreamos: los tetrápodos —del griego <em>tetra</em> (cuatro) y
+              <em>podos</em> (pie)— agrupan a los cuatro linajes de vertebrados con extremidades: anfibios,
+              reptiles, aves y mamíferos.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed text-stone-600">
+              Nuestra pluma —el símbolo que nos representa— lleva grabadas las huellas de esos cuatro grupos.
+              No es solo un ícono: es un mapa en miniatura de todo lo que hacemos. Y una pluma es también
+              imaginación, creatividad, libertad —valores que forman parte de nuestra identidad como Tetrapoda®.
+              Son los que nos empujan a cuestionar el método estándar, a rediseñar un proceso de terreno que
+              "siempre se hizo así", o a construir una herramienta propia cuando ninguna disponible resuelve bien
+              el problema. La pluma no decora el logo: describe cómo trabajamos.
+            </p>
+          </div>
+          <Image
+            src={plumaColor}
+            alt="Pluma Tetrapoda con huellas de tetrápodos"
+            class="h-32 w-32 shrink-0 object-contain sm:h-40 sm:w-40"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 2 — Zéfiro -->
+    <section class="border-b border-stone-200 bg-stone-50 py-16">
+      <div class="mx-auto max-w-4xl px-6">
+        <h2 class="font-display text-2xl font-bold text-stone-900 sm:text-3xl">Zéfiro</h2>
+        <p class="mt-5 text-lg leading-relaxed text-stone-600">
+          Zéfiro toma su nombre de Céfiro (Zephyrus), en la mitología griega el dios del viento del oeste. Su
+          llegada anuncia la primavera: fertiliza las flores, favorece la germinación, y su sola presencia
+          armoniza la naturaleza. Zéfiro permite la llegada de las aves, los mamíferos, los reptiles y los
+          anfibios, iniciando un nuevo ciclo de vida. Es la metáfora exacta de lo que buscamos con esta línea de
+          hardware y software propio: una presencia silenciosa y liviana en terreno, que no perturba lo que
+          estudia, y que existe justamente para que esa vida —la misma que Céfiro hace florecer— pueda
+          registrarse, entenderse y protegerse mejor.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección 3 — Érebo -->
+    <section class="border-b border-stone-200 bg-white py-16">
+      <div class="mx-auto max-w-4xl px-6">
+        <h2 class="font-display text-2xl font-bold text-stone-900 sm:text-3xl">Érebo</h2>
+        <p class="mt-5 text-lg leading-relaxed text-stone-600">
+          Érebo debe su nombre a Érebo (Erebus), la deidad primordial griega asociada a la oscuridad —cuya
+          pareja fue Nix, la noche. No es casualidad: los murciélagos, objeto de estudio de este filtro, son
+          criaturas de la noche. El trabajo de Érebo es, precisamente, traer claridad estadística a esa
+          oscuridad: cada clasificación queda respaldada por parámetros medibles y trazables, nunca una
+          respuesta que exige fe ciega en una caja negra.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección 4 — LinneoDB -->
+    <section class="bg-stone-50 py-16">
+      <div class="mx-auto max-w-4xl px-6">
+        <h2 class="font-display text-2xl font-bold text-stone-900 sm:text-3xl">LinneoDB</h2>
+        <p class="mt-5 text-lg leading-relaxed text-stone-600">
+          LinneoDB rinde homenaje a Carl Linneo (Carl von Linné), el naturalista sueco que sentó las bases de la
+          taxonomía moderna en el siglo XVIII —el sistema de clasificación que hoy sigue toda la ciencia
+          biológica. Es, posiblemente, la base de datos más completa de vertebrados terrestres de Chile
+          disponible de forma abierta, y una base de datos viva: se nutre y se actualiza constantemente a medida
+          que avanza el conocimiento científico.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
