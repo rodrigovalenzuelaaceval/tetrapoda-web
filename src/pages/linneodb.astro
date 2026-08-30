@@ -40,12 +40,13 @@ import plumaColor from "../assets/pluma-color.png";
         <p class="mt-1 max-w-3xl text-sm leading-relaxed text-stone-400">
           Desarrollo y curación de datos: Rodrigo Valenzuela Aceval.
           Herramienta de exploración de LinneoDB (base de datos curada de vertebrados de Chile).
-          <a
-            href="#"
+          <button
+            type="button"
+            onclick="document.getElementById('modal-sobre-datos').showModal()"
             class="underline decoration-dotted underline-offset-2 text-brand-orange-glow hover:text-brand-orange-glow/80"
           >
             Sobre nuestros datos
-          </a>
+          </button>
           <!-- TODO: definir destino real del link -->
         </p>
         <!-- TODO: este conteo es texto estático duplicado de LinneoDB;
@@ -66,4 +67,38 @@ import plumaColor from "../assets/pluma-color.png";
       ></iframe>
     </section>
   </main>
+
+  <!-- Modal "Sobre nuestros datos" (dialog nativo) -->
+  <dialog
+    id="modal-sobre-datos"
+    class="max-w-lg w-[90%] rounded-2xl border border-stone-200 bg-stone-50 p-0 shadow-2xl backdrop:bg-black/50"
+  >
+    <div class="p-6">
+      <div class="flex items-start justify-between gap-4">
+        <h3 class="font-display text-xl font-bold text-brand-black">Sobre nuestros datos</h3>
+        <button
+          type="button"
+          onclick="document.getElementById('modal-sobre-datos').close()"
+          class="text-stone-500 hover:text-brand-black"
+          aria-label="Cerrar"
+        >✕</button>
+      </div>
+      <div class="mt-4 text-sm leading-relaxed text-stone-700">
+        <!-- PLACEHOLDER: reemplazar con el texto real que Rod defina -->
+        <p>[Texto pendiente: fuentes de datos, criterio de curación, mantenimiento.]</p>
+      </div>
+    </div>
+  </dialog>
 </BaseLayout>
+
+<script>
+  // Cerrar el dialog "Sobre nuestros datos" al hacer clic en el backdrop (fuera del contenido).
+  const dlg = document.getElementById("modal-sobre-datos");
+  dlg?.addEventListener("click", (e) => {
+    const rect = dlg.getBoundingClientRect();
+    const inside =
+      e.clientX >= rect.left && e.clientX <= rect.right &&
+      e.clientY >= rect.top && e.clientY <= rect.bottom;
+    if (!inside) dlg.close();
+  });
+</script>
