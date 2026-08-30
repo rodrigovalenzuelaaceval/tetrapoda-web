@@ -55,10 +55,6 @@ header.appbar .attribution{font-size:11.5px; color:var(--sage-500); margin-top:4
 header.appbar .attribution a{color:var(--sage-300); text-decoration:underline}
 header.appbar .status{font-size:12px; color:var(--sage-300); text-align:right}
 header.appbar .status .verlabel{color:var(--sage-200)}
-/* El encabezado interno duplicado se oculta: la página Astro /linneodb ya
-   presenta el título, subtítulo, atribución y conteo. Solo CSS — los
-   elementos y el JS que los puebla se mantienen intactos. */
-header.appbar{display:none}
 
 nav.viewnav{
   background:var(--sage-800); display:flex; gap:8px; padding:14px 28px; margin-top:1.5rem;
@@ -340,6 +336,13 @@ footer.appfooter{max-width:1180px; margin:0 auto; padding:10px 20px 40px; font-s
 </div>
 
 <script>
+/* Ocultar el header interno cuando el visualizador se embebe en /linneodb
+   (?embedded=1). En standalone (sin el parámetro) el header se mantiene. */
+const params = new URLSearchParams(window.location.search);
+if (params.get('embedded') === '1') {
+  document.querySelector('header.appbar')?.style.setProperty('display', 'none');
+}
+
 /* ══════════════════════════════════════════════════════════════════════════
    LinneoDB embebida (gzip + base64). Bloque extraído tal cual desde
    Diversitas_v3_9_33_20260821_RiesgoClimatico.html por marcador de texto,

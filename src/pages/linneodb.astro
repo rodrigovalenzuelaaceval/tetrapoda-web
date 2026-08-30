@@ -56,19 +56,14 @@ import plumaColor from "../assets/pluma-color.png";
       </div>
     </section>
 
-    <!-- Visualizador embebido -->
-    <section class="bg-stone-50 py-6">
-      <div class="mx-auto max-w-7xl px-6">
-        <iframe
-          src="/embeds/linneodb-visualizador.html"
-          title="LinneoDB Visualizador"
-          class="h-[calc(100vh-220px)] min-h-[600px] w-full border-0"
-          loading="lazy"
-        ></iframe>
-        <p class="mt-3 text-center text-xs text-stone-500">
-          Visualizador interactivo de la base de datos LinneoDB — Tetrapoda SpA
-        </p>
-      </div>
+    <!-- Visualizador embebido (full-bleed, pegado al hero) -->
+    <section class="bg-stone-50">
+      <iframe
+        src="/embeds/linneodb-visualizador.html?embedded=1"
+        title="LinneoDB Visualizador"
+        class="block h-[calc(100vh-180px)] min-h-[650px] w-full border-0"
+        loading="lazy"
+      ></iframe>
     </section>
   </main>
 </BaseLayout>
