@@ -47,7 +47,6 @@ import plumaColor from "../assets/pluma-color.png";
           >
             Sobre nuestros datos
           </button>
-          <!-- TODO: definir destino real del link -->
         </p>
         <!-- TODO: este conteo es texto estático duplicado de LinneoDB;
         si la base de datos cambia, actualizar aquí también -->
@@ -83,9 +82,39 @@ import plumaColor from "../assets/pluma-color.png";
           aria-label="Cerrar"
         >✕</button>
       </div>
-      <div class="mt-4 text-sm leading-relaxed text-stone-700">
-        <!-- PLACEHOLDER: reemplazar con el texto real que Rod defina -->
-        <p>[Texto pendiente: fuentes de datos, criterio de curación, mantenimiento.]</p>
+      <div class="mt-4 max-h-[70vh] overflow-y-auto space-y-3 text-sm leading-relaxed text-stone-700">
+        <p>
+          Tetrapoda® LinneoDB Visualizador publica información curada sobre la
+          fauna vertebrada de Chile con fines de difusión científica, apoyo a
+          la gestión ambiental y docencia.
+        </p>
+        <p>
+          Al mismo tiempo, reconocemos que la información de localización
+          precisa de especies amenazadas puede facilitar presión de caza,
+          extracción o coleccionismo ilegal — un riesgo documentado y
+          ampliamente discutido en el manejo de datos de biodiversidad
+          (criterio de "datos sensibles" aplicado, por ejemplo, por GBIF y
+          la UICN).
+        </p>
+        <p>
+          Por eso, para especies clasificadas en categoría CR (En Peligro
+          Crítico) o EN (En Peligro) según el Reglamento de Clasificación
+          de Especies (RCE) vigente a nivel nacional, omitimos las notas de
+          texto libre que detallan localidades o rangos altitudinales
+          puntuales (ej. reservas, quebradas, coordenadas de registros
+          específicos).
+        </p>
+        <p>
+          El resto de la información de la especie —taxonomía, ecología,
+          conservación, relaciones interespecíficas— se mantiene disponible.
+        </p>
+        <p>
+          Si eres consultor(a), investigador(a) o gestor(a) y necesitas el
+          detalle completo de localización para un proyecto específico,
+          <a href="/#contacto" class="font-semibold text-brand-orange underline hover:text-brand-orange-glow">
+            contáctanos directamente a través de Tetrapoda®
+          </a>.
+        </p>
       </div>
     </div>
   </dialog>
