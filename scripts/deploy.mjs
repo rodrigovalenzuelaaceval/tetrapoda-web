@@ -37,7 +37,7 @@ if (!fs.existsSync(localDistPath)) {
 const uploadedFiles = new Set();
 const startedAt = Date.now();
 
-const client = new Client();
+const client = new Client(120_000); // 120s de timeout (default: 30s)
 
 // secure: false porque el hosting solo ofrece FTP plano (sin FTPS).
 // Nota: basic-ftp no soporta un modo "optional"/auto-detección de FTPS;
