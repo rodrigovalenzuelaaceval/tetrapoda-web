@@ -16,12 +16,12 @@ import heroFauna from "../assets/fauna/huemul.jpg";
   <main>
     <!-- Hero compacta -->
     <section class="relative overflow-hidden bg-stone-900 py-8 text-stone-100">
+      <!-- Si este ajuste no queda bien, revertir a la versión simple:
+           transform: scaleX(-1);  (sin scale ni translateX) -->
       <Image
         src={heroFauna}
         alt=""
         class="absolute inset-0 w-full h-full object-cover z-0"
-        <!-- Si este ajuste no queda bien, revertir a la versión simple:
-             transform: scaleX(-1);  (sin scale ni translateX) -->
         style="object-position: center 35%; transform: scale(1.35) translateX(-10%) scaleX(-1);"
         loading="eager"
         fetchpriority="high"
