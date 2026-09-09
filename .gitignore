@@ -15,3 +15,6 @@ pnpm-debug.log*
 .env.production
 # macOS
 .DS_Store
+
+# Binarios de apps descargables (solo disco local, no se versionan en Git)
+public/apps/*.apk

@@ -217,6 +217,49 @@ const fichaPlaceholders = [
       )
     }
 
+    <!-- Aplicación de configuración (sideload, fuera de Play Store) -->
+    {
+      equipo.appConfiguracion && (
+        <section class="bg-stone-50 py-16">
+          <div class="mx-auto max-w-4xl px-6">
+            <div class="rounded-3xl bg-sage-900 p-8 text-stone-100 sm:p-10">
+              <h2 class="font-display text-3xl font-bold text-white">
+                Aplicación de configuración
+              </h2>
+              <p class="mt-4 text-lg leading-relaxed text-stone-300">
+                {equipo.appConfiguracion.textoIntro}
+              </p>
+              <a
+                href={equipo.appConfiguracion.urlDescarga}
+                download
+                class="mt-8 inline-block rounded-full bg-brand-orange px-8 py-3 font-semibold text-brand-black shadow-lg transition hover:bg-brand-orange-glow"
+              >
+                {`Descargar Zéfiro para Android · v${equipo.appConfiguracion.version} (${equipo.appConfiguracion.pesoMB} MB)`}
+              </a>
+              <h3 class="mt-10 font-display text-xl font-bold text-white">
+                Cómo instalarla
+              </h3>
+              <ol class="mt-5 list-none space-y-3">
+                {
+                  equipo.appConfiguracion.pasosInstalacion.map((paso, i) => (
+                    <li class="flex items-start gap-3">
+                      <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-azul/15 text-xs font-bold text-brand-azul">
+                        {i + 1}
+                      </span>
+                      <span class="text-sm leading-relaxed text-stone-300">{paso}</span>
+                    </li>
+                  ))
+                }
+              </ol>
+              <p class="mt-6 text-xs leading-relaxed text-stone-400">
+                {equipo.appConfiguracion.notaPermiso}
+              </p>
+            </div>
+          </div>
+        </section>
+      )
+    }
+
     <!-- CTA final -->
     <section class="bg-sage-900 py-16 text-stone-100">
       <div class="mx-auto max-w-4xl px-6 text-center">

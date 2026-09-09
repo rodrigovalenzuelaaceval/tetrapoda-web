@@ -38,6 +38,15 @@ export interface Producto {
   // Array de párrafos con subtítulo opcional en negrita. Cuando existe,
   // la página de detalle lo usa en vez de `descripcion` para el cuerpo
   // completo (texto real transcrito del sitio anterior, NO resumido).
+  // App de configuración descargable por sideload, fuera de Play Store — hoy solo la usa Zéfiro Strix.
+  appConfiguracion?: {
+    version: string;
+    pesoMB: number;
+    urlDescarga: string;
+    textoIntro: string;
+    pasosInstalacion: string[];
+    notaPermiso: string;
+  };
 }
 
 export const equipos: Producto[] = [
@@ -94,6 +103,18 @@ export const equipos: Producto[] = [
         texto: "Zéfiro Strix está disponible para arriendo, según el alcance y duración de tu proyecto de monitoreo. Contáctanos para conversar el plan de arriendo que mejor se ajuste a tu caso.",
       },
     ],
+    appConfiguracion: {
+      version: "1.6.0",
+      pesoMB: 57.6,
+      urlDescarga: "/apps/zefiro-strix-v1.6.0.apk",
+      textoIntro: "Zéfiro Strix se configura desde la aplicación móvil Zéfiro, disponible para Android. La app se conecta al dispositivo por Bluetooth de baja energía y permite ajustar horarios, especies objetivo, volumen y ubicación del punto de monitoreo sin necesidad de cables ni redes WiFi intermedias.",
+      pasosInstalacion: [
+        "Descarga el archivo desde el botón de arriba.",
+        "Al abrirlo, tu teléfono probablemente te muestre un aviso indicando que la instalación está bloqueada por venir de un origen desconocido. Toca \"Configuración\" en ese mismo aviso y activa \"Permitir de esta fuente\".",
+        "Vuelve atrás e instala normalmente.",
+      ],
+      notaPermiso: "Este permiso solo se aplica al navegador o gestor de archivos que usaste para abrir el archivo, no deja tu teléfono abierto a instalar cualquier cosa en el futuro.",
+    },
   },
   {
     slug: "zefiro-puma",
