@@ -6,6 +6,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import plumaColor from "../assets/pluma-color.png";
+import heroFauna from "../assets/fauna/huemul.jpg";
 ---
 
 <BaseLayout
@@ -14,8 +15,15 @@ import plumaColor from "../assets/pluma-color.png";
 >
   <main>
     <!-- Hero compacta -->
-    <section class="bg-stone-900 py-8 text-stone-100">
-      <div class="mx-auto max-w-7xl px-6">
+    <section class="relative overflow-hidden bg-stone-900 py-8 text-stone-100">
+      <Image
+        src={heroFauna}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover z-0"
+        style="object-position: center 35%"
+      />
+      <div class="absolute inset-0 z-10" style="background-color: rgba(0,0,0,0.7)"></div>
+      <div class="relative z-20 mx-auto max-w-7xl px-6">
         <nav class="text-xs font-medium uppercase tracking-widest text-stone-500">
           <a href="/#webapp" class="text-brand-orange-glow hover:text-brand-orange-glow/80">
             Software propio

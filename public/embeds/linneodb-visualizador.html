@@ -61,7 +61,7 @@ nav.viewnav{
 }
 nav.viewnav .navbtn{
   background:none; border:none; color:var(--sage-200); font-family:'Inter',sans-serif; font-size:14px; font-weight:600;
-  padding:12px 22px; cursor:pointer; border-radius:8px; border:1px solid transparent; transition:all .15s ease;
+  padding:12px 22px; cursor:pointer; border-radius:8px; border:1px solid rgba(255,255,255,.18); transition:all .15s ease;
 }
 nav.viewnav .navbtn:hover{color:var(--paper); background:rgba(232,103,10,.14); border-color:rgba(232,103,10,.4)}
 nav.viewnav .navbtn.active{
@@ -1194,9 +1194,11 @@ const FICHA_LABELS = {
    Rodrigo, 27-ago-2026: se omiten los campos de texto libre que traen
    localidades/coordenadas precisas (altitud_nota, rango_geografico_extremos
    y su _nota), no así los valores numéricos de altitud ni las regiones
-   (regiones_presente ya es a nivel regional, no puntual). Ver bloque
+   (regiones_presente ya es a nivel regional, no puntual). Se amplió porque
+   se detectaron nombres de localidades específicas también en
+   formacion_vegetacional_detallada para algunas especies CR/EN. Ver bloque
    "Sobre nuestros datos" para el criterio completo. ────────────────────── */
-const CAMPOS_LOCALIDAD_SENSIBLE = ['rango_geografico_extremos', 'rango_geografico_extremos_nota', 'altitud_nota'];
+const CAMPOS_LOCALIDAD_SENSIBLE = ['rango_geografico_extremos', 'rango_geografico_extremos_nota', 'altitud_nota', 'formacion_vegetacional_detallada'];
 function esLocalidadSensible(record) {
   const cat = getRceNacionalVigente(record).valor;
   return cat === 'CR' || cat === 'EN';
