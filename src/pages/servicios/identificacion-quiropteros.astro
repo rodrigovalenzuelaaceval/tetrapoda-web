@@ -4,6 +4,7 @@
 // Estructura: problema -> enfoque -> proceso -> entregables -> uso -> modelo -> CTA.
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
+import espectrogramaHero from "../../assets/erebo/espectrograma-hero.png";
 // Ejemplos reales de output del Filtro Érebo (datos anonimizados).
 import espectro01 from "../../assets/erebo/espectro-01.png";
 import espectro02 from "../../assets/erebo/espectro-02.png";
@@ -133,8 +134,17 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Encabezado del servicio -->
-    <section class="bg-sage-900 py-20 text-stone-100 sm:py-28">
-      <div class="mx-auto max-w-4xl px-6">
+    <section class="relative overflow-hidden bg-sage-900 py-20 text-stone-100 sm:py-28">
+      <Image
+        src={espectrogramaHero}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover z-0"
+        style="object-position: center"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 z-10" style="background-color: rgba(0,0,0,0.78)"></div>
+      <div class="relative z-20 mx-auto max-w-4xl px-6">
         <p class="text-xs font-semibold uppercase tracking-widest text-brand-orange-glow">
           Filtro Érebo · Servicio bioacústico
         </p>
