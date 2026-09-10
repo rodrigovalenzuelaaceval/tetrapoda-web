@@ -1,0 +1,85 @@
+---
+// Política de Privacidad — Aplicación móvil Zéfiro-Strix.
+// Página legal para el requisito de Google Play. Texto fuente migrado
+// desde politica-privacidad-zefiro.md (sin agregar, quitar ni parafrasear).
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Política de Privacidad — Zéfiro-Strix | Tetrapoda SpA"
+  description="Política de privacidad de la aplicación móvil Zéfiro-Strix, de Tetrapoda SpA. Describe qué datos accede la app y cómo se usan."
+>
+  <main>
+    <!-- Hero corta -->
+    <section class="relative overflow-hidden bg-stone-900 py-20 text-stone-100 sm:py-24">
+      <div class="relative z-20 mx-auto max-w-4xl px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-orange-glow">
+          Privacidad
+        </p>
+        <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
+          Política de Privacidad — Zéfiro-Strix
+        </h1>
+        <p class="mt-4 text-sm text-stone-400">
+          <strong>Última actualización:</strong> 10 de septiembre de 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- Contenido legal -->
+    <section class="bg-white py-16">
+      <div class="mx-auto max-w-3xl px-6">
+        <p class="text-lg leading-relaxed text-stone-600">
+          Tetrapoda® SpA ("nosotros", "nuestra empresa") opera la aplicación móvil Zéfiro-Strix, utilizada para configurar dispositivos de monitoreo bioacústico Zéfiro Strix mediante conexión Bluetooth de baja energía (BLE). Esta política describe qué información accede la aplicación, cómo se usa, y qué no hacemos con ella.
+        </p>
+
+        <h2 class="mt-10 font-display text-2xl font-bold text-stone-900">Información que la aplicación accede</h2>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Para funcionar, Zéfiro-Strix solicita los siguientes permisos del sistema operativo Android:
+        </p>
+        <ul class="mt-4 space-y-3 text-lg leading-relaxed text-stone-600">
+          <li><strong>Bluetooth (escaneo y conexión):</strong> para encontrar y conectarse al dispositivo Zéfiro Strix cercano, y enviarle la configuración de la sesión de monitoreo (horarios, especies objetivo, volumen, y otros parámetros).</li>
+          <li><strong>Ubicación (GPS):</strong> Android exige este permiso para poder escanear dispositivos Bluetooth de baja energía, incluso en apps que no usan la ubicación para rastrear al usuario. En el caso de Zéfiro-Strix, sí usamos la coordenada GPS del teléfono para capturar automáticamente las coordenadas UTM del punto de monitoreo, que se escriben directamente en la configuración del dispositivo.</li>
+          <li><strong>Wi-Fi:</strong> utilizado o previsto para ciertas funciones de configuración del dispositivo.</li>
+        </ul>
+
+        <h2 class="mt-10 font-display text-2xl font-bold text-stone-900">Cómo se usa esta información</h2>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Toda la información de configuración, incluida la coordenada GPS capturada, se transmite directamente desde el teléfono hacia el dispositivo Zéfiro Strix por Bluetooth. Desde ahí queda almacenada localmente en la memoria del dispositivo (archivo de configuración y tarjeta microSD), no en ningún servidor.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          <strong>La aplicación Zéfiro-Strix no cuenta con servidores propios, no envía información a la nube, no usa herramientas de analítica de terceros, y no comparte datos con ningún tercero.</strong> La única transferencia de datos ocurre entre el teléfono del usuario y su propio dispositivo Zéfiro Strix, por conexión Bluetooth directa.
+        </p>
+
+        <h2 class="mt-10 font-display text-2xl font-bold text-stone-900">Cuentas de usuario</h2>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          La aplicación no requiere crear una cuenta ni iniciar sesión. No recopilamos nombres, correos electrónicos, ni ningún otro dato de identificación personal a través de la app.
+        </p>
+
+        <h2 class="mt-10 font-display text-2xl font-bold text-stone-900">Grabaciones de audio y datos de monitoreo</h2>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Las grabaciones de audio y los registros de sesión (fecha, hora, coordenadas, datos ambientales) generados durante el monitoreo se almacenan únicamente en la tarjeta microSD del propio dispositivo Zéfiro Strix. La aplicación no descarga, transmite ni tiene acceso a estos archivos; su extracción es un proceso manual que realiza el operador del equipo directamente desde la tarjeta.
+        </p>
+
+        <h2 class="mt-10 font-display text-2xl font-bold text-stone-900">Menores de edad</h2>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Zéfiro-Strix es una herramienta profesional de monitoreo ambiental y no está dirigida a menores de edad. No recopilamos intencionalmente información de menores.
+        </p>
+
+        <h2 class="mt-10 font-display text-2xl font-bold text-stone-900">Cambios a esta política</h2>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Podemos actualizar esta política ocasionalmente. Cualquier cambio se reflejará en esta misma página, con la fecha de última actualización correspondiente.
+        </p>
+
+        <h2 class="mt-10 font-display text-2xl font-bold text-stone-900">Contacto</h2>
+        <p class="mt-4 text-lg leading-relaxed text-stone-600">
+          Para consultas sobre esta política o sobre el tratamiento de datos:
+        </p>
+        <ul class="mt-4 space-y-3 text-lg leading-relaxed text-stone-600">
+          <li>Correo: contacto@tetrapoda.cl</li>
+          <li>Teléfono: +56 9 7788 5573</li>
+          <li>Tetrapoda® SpA, Santiago de Chile</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
