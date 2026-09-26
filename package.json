@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "node scripts/deploy.mjs",
-    "deploy:full": "npm run build && npm run deploy"
+    "deploy:full": "npm run build && npm run deploy",
+    "deploy:file": "node scripts/deploy-file.mjs"
   },
   "dependencies": {
     "astro": "^4.16.18",
