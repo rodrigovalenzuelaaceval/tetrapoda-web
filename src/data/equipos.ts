@@ -87,7 +87,7 @@ export const equipos: Producto[] = [
       },
       {
         titulo: "Configuración sin fricción, incluso para quien no es técnico",
-        texto: "Toda la configuración del dispositivo (horarios, especies, volumen, ubicación del punto de monitoreo) se hace desde la aplicación móvil Zéfiro, disponible para Android. La app se conecta directo al dispositivo por Bluetooth de baja energía, sin necesidad de redes WiFi intermedias ni cables de datos, y captura automáticamente las coordenadas UTM del punto usando el GPS del propio teléfono, eliminando el paso manual de buscar coordenadas en otra aplicación y transcribirlas a mano.",
+        texto: "Toda la configuración del dispositivo (horarios, especies, ganancia de grabación, ubicación del punto de monitoreo) se hace desde la aplicación móvil Zéfiro, disponible para Android. La app se conecta directo al dispositivo por Bluetooth de baja energía, sin necesidad de redes WiFi intermedias ni cables de datos, y captura automáticamente las coordenadas UTM del punto usando el GPS del propio teléfono, eliminando el paso manual de buscar coordenadas en otra aplicación y transcribirlas a mano.",
       },
       {
         texto: "El objetivo desde el diseño de la app fue que cualquier persona del equipo de terreno, tenga o no formación técnica en electrónica, pueda dejar un dispositivo operando correctamente en minutos.",
@@ -103,7 +103,7 @@ export const equipos: Producto[] = [
     ],
     appConfiguracion: {
       urlPlay: "https://play.google.com/store/apps/details?id=cl.tetrapoda.zefirostrix",
-      textoIntro: "Zéfiro Strix se configura desde la aplicación móvil Zéfiro, disponible en Google Play para Android. La app se conecta al dispositivo por Bluetooth de baja energía y permite ajustar horarios, especies objetivo, volumen y ubicación del punto de monitoreo sin necesidad de cables ni redes WiFi intermedias.",
+      textoIntro: "Zéfiro Strix se configura desde la aplicación móvil Zéfiro, disponible en Google Play para Android. La app se conecta al dispositivo por Bluetooth de baja energía y permite ajustar horarios, especies objetivo, ganancia de grabación y ubicación del punto de monitoreo sin necesidad de cables ni redes WiFi intermedias.",
       pasosInstalacion: [
         "Pulsa el botón de Google Play de arriba para abrir la ficha de la app.",
         "Pulsa Instalar y abre la app cuando termine la descarga.",
