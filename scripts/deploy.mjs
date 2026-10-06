@@ -38,7 +38,7 @@ const uploadedFiles = new Set();
 const startedAt = Date.now();
 
 const client = new Client(300_000); // 5 min — margen para archivos
-// grandes como el .apk de configuración (~58MB)
+// estáticos grandes (HTML de ejemplos, embeds e imágenes)
 
 // secure: false porque el hosting solo ofrece FTP plano (sin FTPS).
 // Nota: basic-ftp no soporta un modo "optional"/auto-detección de FTPS;

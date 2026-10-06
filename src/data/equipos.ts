@@ -38,11 +38,9 @@ export interface Producto {
   // Array de párrafos con subtítulo opcional en negrita. Cuando existe,
   // la página de detalle lo usa en vez de `descripcion` para el cuerpo
   // completo (texto real transcrito del sitio anterior, NO resumido).
-  // App de configuración descargable por sideload, fuera de Play Store — hoy solo la usa Zéfiro Strix.
+  // App de configuración, distribuida por Google Play. Hoy solo la usa Zéfiro Strix.
   appConfiguracion?: {
-    version: string;
-    pesoMB: number;
-    urlDescarga: string;
+    urlPlay?: string;
     textoIntro: string;
     pasosInstalacion: string[];
     notaPermiso: string;
@@ -104,16 +102,14 @@ export const equipos: Producto[] = [
       },
     ],
     appConfiguracion: {
-      version: "1.6.0",
-      pesoMB: 57.6,
-      urlDescarga: "/apps/zefiro-strix-v1.6.0.apk",
-      textoIntro: "Zéfiro Strix se configura desde la aplicación móvil Zéfiro, disponible para Android. La app se conecta al dispositivo por Bluetooth de baja energía y permite ajustar horarios, especies objetivo, volumen y ubicación del punto de monitoreo sin necesidad de cables ni redes WiFi intermedias.",
+      urlPlay: "https://play.google.com/store/apps/details?id=cl.tetrapoda.zefirostrix",
+      textoIntro: "Zéfiro Strix se configura desde la aplicación móvil Zéfiro, disponible en Google Play para Android. La app se conecta al dispositivo por Bluetooth de baja energía y permite ajustar horarios, especies objetivo, volumen y ubicación del punto de monitoreo sin necesidad de cables ni redes WiFi intermedias.",
       pasosInstalacion: [
-        "Descarga el archivo desde el botón de arriba.",
-        "Al abrirlo, tu teléfono probablemente te muestre un aviso indicando que la instalación está bloqueada por venir de un origen desconocido. Toca \"Configuración\" en ese mismo aviso y activa \"Permitir de esta fuente\".",
-        "Vuelve atrás e instala normalmente.",
+        "Pulsa el botón de Google Play de arriba para abrir la ficha de la app.",
+        "Pulsa Instalar y abre la app cuando termine la descarga.",
+        "Al abrirla, acepta los permisos de Bluetooth y ubicación que solicita para encontrar el equipo.",
       ],
-      notaPermiso: "Este permiso solo se aplica al navegador o gestor de archivos que usaste para abrir el archivo, no deja tu teléfono abierto a instalar cualquier cosa en el futuro.",
+      notaPermiso: "La app solicita permisos de Bluetooth y ubicación: Bluetooth para conectarse al equipo, y ubicación para escanear dispositivos cercanos y capturar las coordenadas UTM del punto de monitoreo. Los datos se guardan localmente en el equipo y no se envían a ningún servidor.",
     },
   },
   {

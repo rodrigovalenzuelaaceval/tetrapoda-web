@@ -217,7 +217,7 @@ const fichaPlaceholders = [
       )
     }
 
-    <!-- Aplicación de configuración (sideload, fuera de Play Store) -->
+    <!-- Aplicación de configuración (distribuida por Google Play) -->
     {
       equipo.appConfiguracion && (
         <section class="bg-stone-50 py-16">
@@ -229,13 +229,22 @@ const fichaPlaceholders = [
               <p class="mt-4 text-lg leading-relaxed text-stone-300">
                 {equipo.appConfiguracion.textoIntro}
               </p>
-              <a
-                href={equipo.appConfiguracion.urlDescarga}
-                download
-                class="mt-8 inline-block rounded-full bg-brand-orange px-8 py-3 font-semibold text-brand-black shadow-lg transition hover:bg-brand-orange-glow"
-              >
-                {`Descargar Zéfiro para Android · v${equipo.appConfiguracion.version} (${equipo.appConfiguracion.pesoMB} MB)`}
-              </a>
+              {
+                equipo.appConfiguracion.urlPlay && (
+                  <a
+                    href={equipo.appConfiguracion.urlPlay}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-8 inline-flex items-center"
+                  >
+                    <img
+                      src="/img/google-play-badge-es.png"
+                      alt="Disponible en Google Play"
+                      style="height: 48px; width: auto; display: block;"
+                    />
+                  </a>
+                )
+              }
               <h3 class="mt-10 font-display text-xl font-bold text-white">
                 Cómo instalarla
               </h3>
